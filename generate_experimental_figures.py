@@ -495,68 +495,161 @@ def generate_figure_9(out_pdf, out_png):
 def generate_figure_11(out_pdf, out_png):
     """Figure 11: Phase Portrait and Invariant Set Stability Analysis."""
     print("  [06/10] Rendering Figure 11 (Phase Portrait & Invariant Set)...")
-    v = 1.0; l1 = 0.8; l2 = 1.2
-    delta_max = np.deg2rad(45.0)
+    v = 1.0        # m/s
+    L1 = 0.8       # m
+    L2 = 1.2       # m
+    delta_max = np.deg2rad(45.0)   # 45 deg
+    gamma_safe = np.deg2rad(60.0)  # 60 deg
+    gamma_max = np.deg2rad(70.0)   # 70 deg
+    dt = 0.01      # high-fidelity integration
+    alpha_steer = 0.5
+    k_jk = 10.0
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 5.0))
     fig.subplots_adjust(wspace=0.28, left=0.07, right=0.93, top=0.90, bottom=0.12)
 
+    # ----------------------------------------------------
+    # PANEL (a): Phase Portrait (\gamma vs \dot{\gamma})
+    # ----------------------------------------------------
     gamma_deg = np.linspace(-80, 80, 100)
     gamma_rad = np.deg2rad(gamma_deg)
 
-    dot_gamma_pos = np.rad2deg((v / l1) * np.tan(delta_max) - (v / l2) * np.sin(gamma_rad))
-    dot_gamma_neg = np.rad2deg((v / l1) * np.tan(-delta_max) - (v / l2) * np.sin(gamma_rad))
-    dot_gamma_zero = np.rad2deg(-(v / l2) * np.sin(gamma_rad))
+    dot_gamma_pos_delta = (v / L1) * np.tan(delta_max) - (v / L2) * np.sin(gamma_rad)
+    dot_gamma_neg_delta = (v / L1) * np.tan(-delta_max) - (v / L2) * np.sin(gamma_rad)
+    dot_gamma_zero_delta = -(v / L2) * np.sin(gamma_rad)
 
-    ax1.set_title(r"(a) Phase Portrait $(\gamma \text{ vs } \dot{\gamma})$ and Invariant Set $\mathcal{C}_{safe}$", fontweight="bold", pad=8)
-    ax1.set_xlabel(r"Articulation Angle $\gamma$ ($^\circ$)")
-    ax1.set_ylabel(r"Articulation Rate $\dot{\gamma}$ ($^\circ$/s)")
-    ax1.grid(True, linestyle=":", alpha=0.5, color="gray")
+    dot_gamma_pos_deg = np.rad2deg(dot_gamma_pos_delta)
+    dot_gamma_neg_deg = np.rad2deg(dot_gamma_neg_delta)
+    dot_gamma_zero_deg = np.rad2deg(dot_gamma_zero_delta)
 
+    # Shaded invariant zones
     ax1.axvspan(-60, 60, color='#2ca02c', alpha=0.10, label=r'Safe Invariant Set $\mathcal{C}_{safe}$ ($|\gamma| \leq 60^\circ$)')
     ax1.axvspan(60, 66.4, color='orange', alpha=0.18, label=r'Dynamic Buffer Zone ($\Delta\gamma_{margin} = 6.4^\circ$)')
     ax1.axvspan(-66.4, -60, color='orange', alpha=0.18)
     ax1.axvspan(70, 85, color='red', alpha=0.20, label=r'Jackknife Catastrophe ($|\gamma| \geq 70^\circ$)')
     ax1.axvspan(-85, -70, color='red', alpha=0.20)
 
-    ax1.plot(gamma_deg, dot_gamma_pos, 'b--', linewidth=1.4, label=r'Max Turn ($\delta = +\delta_{max}$)')
-    ax1.plot(gamma_deg, dot_gamma_neg, 'r--', linewidth=1.4, label=r'Counter Turn ($\delta = -\delta_{max}$)')
-    ax1.plot(gamma_deg, dot_gamma_zero, 'k:', linewidth=1.2, label=r'Zero Steer Baseline ($\delta = 0$)')
+    # Envelope lines
+    ax1.plot(gamma_deg, dot_gamma_pos_deg, 'b--', linewidth=1.4, label=r'Aggressive Turn ($\delta = +\delta_{max}$)')
+    ax1.plot(gamma_deg, dot_gamma_neg_deg, 'r--', linewidth=1.4, label=r'Corrective Saturation ($\delta = -\delta_{max}$)')
+    ax1.plot(gamma_deg, dot_gamma_zero_deg, 'k:', linewidth=1.2, label=r'Zero Steer Baseline ($\delta = 0$)')
 
-    # Simulation phase trajectory under SCPF counter-torque
-    t_span = np.linspace(0, 3.5, 350)
-    dt = t_span[1] - t_span[0]
-    g_curr = np.deg2rad(55.0)
-    traj_g, traj_gdot = [], []
-    for _ in t_span:
-        d_cmd = -1.2 * g_curr if abs(g_curr) > np.deg2rad(45.0) else -0.5 * g_curr
-        d_cmd = np.clip(d_cmd, -delta_max, delta_max)
-        g_dot = (v / l1) * np.tan(d_cmd) - (v / l2) * np.sin(g_curr)
-        traj_g.append(np.rad2deg(g_curr))
-        traj_gdot.append(np.rad2deg(g_dot))
-        g_curr += g_dot * dt
+    # Simulate closed-loop phase trajectory with SCPF counter-torque and filter
+    def simulate_phase_trajectory(gamma_init_deg, delta_init_deg, duration=4.0):
+        t_steps = int(duration / dt)
+        traj_gamma = [np.deg2rad(gamma_init_deg)]
+        traj_dot_gamma = []
+        current_delta = np.deg2rad(delta_init_deg)
 
-    ax1.plot(traj_g, traj_gdot, color='#1f77b4', linewidth=2.4, label=r'SCPF Trajectory ($\gamma_0 = 55^\circ$)')
-    ax1.plot(traj_g[0], traj_gdot[0], 'o', color='#1f77b4', markersize=6)
-    ax1.set_xlim(-80, 80); ax1.set_ylim(-100, 100)
-    ax1.legend(loc="upper right", framealpha=0.9, fontsize=8.0)
+        for _ in range(t_steps):
+            g = traj_gamma[-1]
+            if g > gamma_safe:
+                tau = -k_jk * (g - gamma_safe)
+            elif g < -gamma_safe:
+                tau = -k_jk * (g + gamma_safe)
+            else:
+                tau = 0.0
 
-    # Panel (b): Time response comparison
-    ax2.set_title(r"(b) Transient Articulation Damping from Disturbance", fontweight="bold", pad=8)
-    ax2.set_xlabel("Time (s)"); ax2.set_ylabel(r"Articulation Angle $\gamma(t)$ ($^\circ$)")
-    ax2.grid(True, linestyle=":", alpha=0.5, color="gray")
+            raw_delta = np.clip(delta_max + tau if g >= 0 else -delta_max + tau, -delta_max, delta_max)
+            current_delta = alpha_steer * raw_delta + (1.0 - alpha_steer) * current_delta
+            current_delta = np.clip(current_delta, -delta_max, delta_max)
 
-    ax2.plot(t_span, traj_g, color='#1f77b4', lw=2.2, label="SCPF (Counter-Torque)")
-    # Uncontrolled APF diverging
-    t_apf_d = np.linspace(0, 0.8, 80)
-    g_apf_d = 55.0 + 32.0 * t_apf_d ** 1.4
-    ax2.plot(t_apf_d, g_apf_d, color='#d62728', linestyle=':', lw=2.0, label="Baseline APF (Jackknife Collapse)")
-    ax2.plot(t_apf_d[-1], g_apf_d[-1], 'x', color='#d62728', markersize=8, markeredgewidth=2.2)
+            dot_g = (v / L1) * np.tan(current_delta) - (v / L2) * np.sin(g)
+            traj_dot_gamma.append(dot_g)
+            g_next = g + dot_g * dt
+            traj_gamma.append(g_next)
 
-    ax2.axhline(60.0, color='#2ca02c', linestyle='--', lw=1.2, label=r"Safe Bound $\gamma_{safe} = 60^\circ$")
-    ax2.axhline(70.0, color='red', linestyle='--', lw=1.2, label=r"Critical Limit $\gamma_{max} = 70^\circ$")
-    ax2.set_ylim(-10, 85)
-    ax2.legend(loc="upper right", framealpha=0.9, fontsize=8.5)
+        traj_dot_gamma.append(traj_dot_gamma[-1])
+        return np.rad2deg(traj_gamma), np.rad2deg(traj_dot_gamma)
+
+    traj_g1, traj_dg1 = simulate_phase_trajectory(35.0, 45.0, duration=3.0)
+    traj_g2, traj_dg2 = simulate_phase_trajectory(-35.0, -45.0, duration=3.0)
+    traj_g3, traj_dg3 = simulate_phase_trajectory(55.0, 45.0, duration=2.5)
+
+    ax1.plot(traj_g1, traj_dg1, color='navy', linewidth=2.0, label='SCPF Trajectory (Inward Decay)')
+    ax1.plot(traj_g2, traj_dg2, color='navy', linewidth=2.0)
+    ax1.plot(traj_g3, traj_dg3, color='purple', linewidth=2.0, linestyle='-', label=r'Near-Threshold Response ($\gamma_0 = 55^\circ$)')
+
+    # Quiver arrows indicating flow direction
+    ax1.annotate('', xy=(58, 20), xytext=(50, 45), arrowprops=dict(arrowstyle="->", color="navy", lw=1.8))
+    ax1.annotate('', xy=(50, -40), xytext=(61, -10), arrowprops=dict(arrowstyle="->", color="navy", lw=1.8))
+    ax1.annotate('', xy=(30, -35), xytext=(45, -45), arrowprops=dict(arrowstyle="->", color="navy", lw=1.8))
+
+    ax1.set_xlim(-80, 80)
+    ax1.set_ylim(-100, 100)
+    ax1.axhline(0, color='gray', linewidth=0.8, linestyle='-')
+    ax1.axvline(0, color='gray', linewidth=0.8, linestyle='-')
+    ax1.axvline(60, color='orange', linestyle='--', linewidth=1.5)
+    ax1.axvline(-60, color='orange', linestyle='--', linewidth=1.5)
+    ax1.axvline(70, color='darkred', linestyle=':', linewidth=1.8)
+    ax1.axvline(-70, color='darkred', linestyle=':', linewidth=1.8)
+
+    ax1.set_xlabel(r'Trailer Articulation Angle $\gamma$ ($^\circ$)')
+    ax1.set_ylabel(r'Articulation Rate $\dot{\gamma}$ ($^\circ$/s)')
+    ax1.set_title(r'(a) Phase Portrait $(\gamma, \dot{\gamma})$ and Invariance Envelopes', weight='bold', pad=8)
+    ax1.grid(True, linestyle='--', alpha=0.45)
+    ax1.legend(loc='lower left', framealpha=0.92, fontsize=7.5)
+
+    # ----------------------------------------------------
+    # PANEL (b): Time-Series Response under Extreme Evasion
+    # ----------------------------------------------------
+    t = np.linspace(0, 3.5, 350)
+    gamma_scpf = []
+    gamma_uncontrolled = []
+    delta_actual_scpf = []
+
+    g_sc = np.deg2rad(40.0)
+    d_sc = np.deg2rad(45.0)
+    g_un = np.deg2rad(40.0)
+
+    for step in range(len(t)):
+        # 1. SCPF with counter-torque
+        if g_sc > gamma_safe:
+            tau_jk = -k_jk * (g_sc - gamma_safe)
+        else:
+            tau_jk = 0.0
+        raw_delta_sc = np.clip(delta_max + tau_jk, -delta_max, delta_max)
+        d_sc = alpha_steer * raw_delta_sc + (1.0 - alpha_steer) * d_sc
+        d_sc = np.clip(d_sc, -delta_max, delta_max)
+
+        dot_g_sc = (v / L1) * np.tan(d_sc) - (v / L2) * np.sin(g_sc)
+        g_sc += dot_g_sc * (t[1] - t[0])
+
+        gamma_scpf.append(np.rad2deg(g_sc))
+        delta_actual_scpf.append(np.rad2deg(d_sc))
+
+        # 2. Uncontrolled classical APF (constant +delta_max until crash)
+        d_un = delta_max
+        dot_g_un = (v / L1) * np.tan(d_un) - (v / L2) * np.sin(g_un)
+        g_un += dot_g_un * (t[1] - t[0])
+        gamma_uncontrolled.append(np.rad2deg(g_un))
+
+    ax2.axhspan(60, 70, color='orange', alpha=0.15, label='Safety Margin Buffer ($10^\circ$)')
+    ax2.axhspan(70, 85, color='red', alpha=0.20, label='Jackknife Catastrophe')
+    ax2.axhline(60, color='orange', linestyle='--', linewidth=1.5, label=r'$\gamma_{safe} = 60^\circ$ (Threshold)')
+    ax2.axhline(70, color='darkred', linestyle=':', linewidth=1.8, label=r'$\gamma_{max} = 70^\circ$ (Physical Limit)')
+
+    ax2.plot(t, gamma_scpf, 'b-', linewidth=2.2, label=r'SCPF: $\gamma(t)$ (Safe Peak at $60.8^\circ$)')
+    ax2.plot(t, gamma_uncontrolled, 'r--', linewidth=1.8, label=r'Classical APF: $\gamma(t)$ (Jackknife $>70^\circ$)')
+
+    ax2.set_xlabel('Time $t$ (seconds)')
+    ax2.set_ylabel(r'Articulation Angle $\gamma$ ($^\circ$)', color='darkblue')
+    ax2.tick_params(axis='y', labelcolor='darkblue')
+    ax2.set_xlim(0, 3.5)
+    ax2.set_ylim(35, 85)
+    ax2.grid(True, linestyle='--', alpha=0.45)
+
+    ax2_twin = ax2.twinx()
+    ax2_twin.plot(t, delta_actual_scpf, 'g-.', linewidth=1.5, label=r'SCPF Steering $\delta(t)$ (Counter-Steer)')
+    ax2_twin.set_ylabel(r'Front Steering $\delta$ ($^\circ$)', color='darkgreen')
+    ax2_twin.tick_params(axis='y', labelcolor='darkgreen')
+    ax2_twin.set_ylim(-55, 55)
+
+    ax2.set_title('(b) Dynamic Response: SCPF vs Classical APF', weight='bold', pad=8)
+
+    lines2_1, labels2_1 = ax2.get_legend_handles_labels()
+    lines2_2, labels2_2 = ax2_twin.get_legend_handles_labels()
+    ax2.legend(lines2_1 + lines2_2, labels2_1 + labels2_2, loc='upper right', framealpha=0.92, fontsize=7.5)
 
     plt.savefig(out_pdf, bbox_inches='tight', dpi=300)
     plt.savefig(out_png, bbox_inches='tight', dpi=300)
@@ -969,72 +1062,121 @@ def generate_figure_15(out_pdf, out_png):
     fig, axs = plt.subplots(2, 2, figsize=(10, 7.2))
     fig.subplots_adjust(hspace=0.32, wspace=0.30, left=0.08, right=0.92, top=0.94, bottom=0.08)
 
-    # (a) k_circ sweep
+    # ----------------------------------------------------
+    # Panel (a): k_circ in C-Shape Trap (Topological Decoupling)
+    # ----------------------------------------------------
     ax_a = axs[0, 0]
     k_circ = np.array([5.0, 10.0, 15.0, 20.0])
-    len_a = np.array([33.39, 33.39, 33.39, 33.39])
-    gam_a = np.array([56.02, 56.02, 56.02, 56.02])
-    ax_a.plot(k_circ, len_a, marker='o', color='#1f77b4', label='Path Length (m)')
-    ax_a.set_xlabel(r'Circulation Gain $k_{circ}$')
-    ax_a.set_ylabel('Path Length (m)', color='#1f77b4')
-    ax_a.set_ylim(25, 40); ax_a.grid(True, linestyle='--', alpha=0.5)
-    ax_a_tw = ax_a.twinx()
-    ax_a_tw.plot(k_circ, gam_a, marker='s', linestyle='--', color='#d62728', label=r'Max Articulation $\gamma_{max}$ ($^\circ$)')
-    ax_a_tw.set_ylabel(r'Max Articulation ($^\circ$)', color='#d62728')
-    ax_a_tw.set_ylim(45, 65)
-    ax_a.set_title(r'(a) Macro-Invariance to $k_{circ}$ in C-Shape', weight='bold', pad=8)
-    l1, b1 = ax_a.get_legend_handles_labels()
-    l2, b2 = ax_a_tw.get_legend_handles_labels()
-    ax_a.legend(l1 + l2, b1 + b2, loc='upper right', framealpha=0.9, fontsize=8.0)
+    length_a = np.array([33.39, 33.39, 33.39, 33.39])
+    gamma_a = np.array([56.02, 56.02, 56.02, 56.02])
 
-    # (b) k_gamma sweep
+    color_len = '#1f77b4'
+    color_gam = '#d62728'
+
+    ax_a.plot(k_circ, length_a, marker='o', color=color_len, label='Path Length (m)')
+    ax_a.set_xlabel('Tangential Circulation Gain $k_{circ}$')
+    ax_a.set_ylabel('Path Length (m)', color=color_len)
+    ax_a.tick_params(axis='y', labelcolor=color_len)
+    ax_a.set_ylim(25, 40)
+    ax_a.set_xticks(k_circ)
+    ax_a.grid(True, linestyle='--', alpha=0.5)
+
+    ax_a_twin = ax_a.twinx()
+    ax_a_twin.plot(k_circ, gamma_a, marker='s', linestyle='--', color=color_gam, label=r'Max Articulation $\gamma_{max}$ ($^\circ$)')
+    ax_a_twin.set_ylabel(r'Max Articulation ($^\circ$)', color=color_gam)
+    ax_a_twin.tick_params(axis='y', labelcolor=color_gam)
+    ax_a_twin.set_ylim(45, 65)
+
+    ax_a.set_title(r'(a) Macro-Invariance to $k_{circ}$ in C-Shape Trap', weight='bold', pad=8)
+
+    lines_a1, labels_a1 = ax_a.get_legend_handles_labels()
+    lines_a2, labels_a2 = ax_a_twin.get_legend_handles_labels()
+    ax_a.legend(lines_a1 + lines_a2, labels_a1 + labels_a2, loc='upper right', framealpha=0.9, fontsize=8.0)
+
+    # ----------------------------------------------------
+    # Panel (b): k_gamma in Dense Clutter (Pareto Trade-Off)
+    # ----------------------------------------------------
     ax_b = axs[0, 1]
     k_gamma = np.array([0.0, 1.0, 1.5, 3.0])
-    len_b = np.array([15.70, 19.40, 18.90, 32.80])
-    chat_b = np.array([0.0795, 0.0402, 0.0437, 0.0233])
-    ax_b.plot(k_gamma, len_b, marker='o', color='#1f77b4', label='Path Length (m)')
-    ax_b.set_xlabel(r'Trailer Expansion Gain $k_\gamma$')
-    ax_b.set_ylabel('Path Length (m)', color='#1f77b4')
-    ax_b.set_ylim(10, 38); ax_b.grid(True, linestyle='--', alpha=0.5)
-    ax_b_tw = ax_b.twinx()
-    ax_b_tw.plot(k_gamma, chat_b, marker='^', linestyle='--', color='#2ca02c', label='Steering Chatter Index')
-    ax_b_tw.set_ylabel('Steering Chatter Index', color='#2ca02c')
-    ax_b_tw.set_ylim(0.01, 0.10)
-    ax_b.set_title(r'(b) Pareto Trade-Off of $k_\gamma$ in Dense Clutter', weight='bold', pad=8)
-    l1, b1 = ax_b.get_legend_handles_labels()
-    l2, b2 = ax_b_tw.get_legend_handles_labels()
-    ax_b.legend(l1 + l2, b1 + b2, loc='upper left', framealpha=0.9, fontsize=8.0)
+    length_b = np.array([15.70, 19.40, 18.90, 32.80])
+    chatter_b = np.array([0.0795, 0.0402, 0.0437, 0.0233])
 
-    # (c) k_jk sweep
+    color_b1 = '#2ca02c'
+    color_b2 = '#9467bd'
+
+    ax_b.plot(k_gamma, length_b, marker='^', color=color_b1, label='Path Length (m)')
+    ax_b.set_xlabel(r'Adaptive Clearance Gain $k_{\gamma}$')
+    ax_b.set_ylabel('Path Length (m)', color=color_b1)
+    ax_b.tick_params(axis='y', labelcolor=color_b1)
+    ax_b.set_ylim(10, 38)
+    ax_b.set_xticks(k_gamma)
+    ax_b.grid(True, linestyle='--', alpha=0.5)
+
+    ax_b_twin = ax_b.twinx()
+    ax_b_twin.plot(k_gamma, chatter_b, marker='D', linestyle='-.', color=color_b2, label='Steering Chatter (rad/step)')
+    ax_b_twin.set_ylabel('Steering Chatter (rad/step)', color=color_b2)
+    ax_b_twin.tick_params(axis='y', labelcolor=color_b2)
+    ax_b_twin.set_ylim(0.015, 0.090)
+
+    ax_b.set_title(r'(b) Pareto Trade-Off: $k_{\gamma}$ vs Chatter & Length', weight='bold', pad=8)
+
+    lines_b1, labels_b1 = ax_b.get_legend_handles_labels()
+    lines_b2, labels_b2 = ax_b_twin.get_legend_handles_labels()
+    ax_b.legend(lines_b1 + lines_b2, labels_b1 + labels_b2, loc='upper center', framealpha=0.9, fontsize=8.0)
+
+    # ----------------------------------------------------
+    # Panel (c): k_jk in Narrow Zigzag Corridor (Invariance & Anti-Jackknife)
+    # ----------------------------------------------------
     ax_c = axs[1, 0]
-    k_jk = np.array([0.0, 5.0, 10.0, 20.0])
-    gam_c = np.array([66.33, 53.64, 48.60, 47.93])
-    ax_c.plot(k_jk, gam_c, marker='s', color='#d62728', label=r'Max Articulation $\gamma_{max}$')
-    ax_c.axhline(70.0, color='red', linestyle=':', label=r'Jackknife Limit ($70^\circ$)')
-    ax_c.axhline(60.0, color='#2ca02c', linestyle='--', label=r'Safe Bound $\gamma_{safe}$ ($60^\circ$)')
-    ax_c.set_xlabel(r'Counter-Torque Gain $k_{jk}$')
-    ax_c.set_ylabel(r'Max Articulation ($^\circ$)')
-    ax_c.set_ylim(40, 75); ax_c.grid(True, linestyle='--', alpha=0.5)
-    ax_c.set_title(r'(c) Safety Damping Effectiveness of $k_{jk}$', weight='bold', pad=8)
-    ax_c.legend(loc='upper right', framealpha=0.9, fontsize=8.0)
+    k_jk = np.array([2.0, 5.0, 8.0, 12.0, 16.0])
+    gamma_c = np.array([51.69, 51.31, 51.31, 50.94, 50.93])
 
-    # (d) k_rep sweep
+    ax_c.plot(k_jk, gamma_c, marker='o', color='#d62728', label=r'Max Observed $\gamma$')
+    ax_c.axhline(y=60.0, color='orange', linestyle='--', linewidth=1.8, label=r'Safe Activation $\gamma_{safe}=60^\circ$')
+    ax_c.axhline(y=70.0, color='darkred', linestyle=':', linewidth=2.0, label=r'Physical Jackknife $\gamma_{max}=70^\circ$')
+
+    ax_c.fill_between([1.0, 17.0], 60.0, 70.0, color='orange', alpha=0.12, label=r'Safety Margin Buffer ($10^\circ$)')
+    ax_c.fill_between([1.0, 17.0], 70.0, 75.0, color='red', alpha=0.18, label='Jackknife Failure Zone')
+
+    ax_c.set_xlim(1.5, 16.5)
+    ax_c.set_ylim(45, 75)
+    ax_c.set_xlabel(r'Anti-Jackknife Corrective Gain $k_{jk}$')
+    ax_c.set_ylabel(r'Trailer Articulation Angle ($^\circ$)')
+    ax_c.set_xticks(k_jk)
+    ax_c.grid(True, linestyle='--', alpha=0.5)
+    ax_c.set_title(r'(c) Articulation Clamping vs $k_{jk}$ in Zigzag', weight='bold', pad=8)
+    ax_c.legend(loc='lower right', framealpha=0.9, fontsize=8.0)
+
+    # ----------------------------------------------------
+    # Panel (d): k_rep in Dense Clutter (Clearance vs Detour)
+    # ----------------------------------------------------
     ax_d = axs[1, 1]
-    k_rep = np.array([5.0, 10.0, 15.0, 25.0])
-    len_d = np.array([18.70, 18.90, 19.30, 20.10])
-    clr_d = np.array([0.38, 0.44, 0.49, 0.54])
-    ax_d.plot(k_rep, len_d, marker='o', color='#1f77b4', label='Path Length (m)')
-    ax_d.set_xlabel(r'Repulsive Force Gain $k_{rep}$')
-    ax_d.set_ylabel('Path Length (m)', color='#1f77b4')
-    ax_d.set_ylim(15, 25); ax_d.grid(True, linestyle='--', alpha=0.5)
-    ax_d_tw = ax_d.twinx()
-    ax_d_tw.plot(k_rep, clr_d, marker='d', linestyle='--', color='#ff7f0e', label=r'Min Clearance $d_{min}$ (m)')
-    ax_d_tw.set_ylabel('Min Clearance (m)', color='#ff7f0e')
-    ax_d_tw.set_ylim(0.3, 0.65)
-    ax_d.set_title(r'(d) Performance Stability over $k_{rep}$', weight='bold', pad=8)
-    l1, b1 = ax_d.get_legend_handles_labels()
-    l2, b2 = ax_d_tw.get_legend_handles_labels()
-    ax_d.legend(l1 + l2, b1 + b2, loc='upper left', framealpha=0.9, fontsize=8.0)
+    k_rep = np.array([5.0, 8.0, 10.0, 15.0, 20.0])
+    length_d = np.array([13.70, 30.50, 18.90, 32.19, 32.29])
+    gamma_d = np.array([36.78, 48.59, 48.32, 53.10, 54.18])
+
+    color_d1 = '#1f77b4'
+    color_d2 = '#e377c2'
+
+    ax_d.plot(k_rep, length_d, marker='s', color=color_d1, label='Path Length (m)')
+    ax_d.set_xlabel(r'Repulsive Field Gain $k_{rep}$')
+    ax_d.set_ylabel('Path Length (m)', color=color_d1)
+    ax_d.tick_params(axis='y', labelcolor=color_d1)
+    ax_d.set_ylim(10, 38)
+    ax_d.set_xticks(k_rep)
+    ax_d.grid(True, linestyle='--', alpha=0.5)
+
+    ax_d_twin = ax_d.twinx()
+    ax_d_twin.plot(k_rep, gamma_d, marker='^', linestyle='--', color=color_d2, label=r'Max Articulation $\gamma_{max}$ ($^\circ$)')
+    ax_d_twin.set_ylabel(r'Max Articulation ($^\circ$)', color=color_d2)
+    ax_d_twin.tick_params(axis='y', labelcolor=color_d2)
+    ax_d_twin.set_ylim(30, 60)
+
+    ax_d.set_title(r'(d) Trajectory Detour vs $k_{rep}$ in Dense Clutter', weight='bold', pad=8)
+
+    lines_d1, labels_d1 = ax_d.get_legend_handles_labels()
+    lines_d2, labels_d2 = ax_d_twin.get_legend_handles_labels()
+    ax_d.legend(lines_d1 + lines_d2, labels_d1 + labels_d2, loc='lower right', framealpha=0.9, fontsize=8.0)
 
     plt.savefig(out_pdf, bbox_inches='tight', dpi=300)
     plt.savefig(out_png, bbox_inches='tight', dpi=300)
