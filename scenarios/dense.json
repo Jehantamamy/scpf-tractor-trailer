@@ -1,0 +1,19 @@
+{
+  "config": {
+    "field_size": [15.0, 15.0],
+    "start_pos": [1.8, 2.2],
+    "goal": [13.0, 12.0]
+  },
+  "obstacles": [
+    {"id": 1, "type": "circle", "pos": [2.5, 11.5], "rad": 1.1, "is_dynamic": false},
+    {"id": 2, "type": "circle", "pos": [6.0, 12.8], "rad": 1.1, "is_dynamic": false},
+    {"id": 3, "type": "circle", "pos": [10.0, 13.5], "rad": 1.0, "is_dynamic": false},
+    {"id": 4, "type": "circle", "pos": [5.8, 2.2], "rad": 1.1, "is_dynamic": false},
+    {"id": 5, "type": "circle", "pos": [10.5, 2.5], "rad": 1.1, "is_dynamic": false},
+    {"id": 6, "type": "circle", "pos": [3.0, 6.2], "rad": 1.0, "is_dynamic": false},
+    {"id": 7, "type": "circle", "pos": [7.2, 5.5], "rad": 1.0, "is_dynamic": false},
+    {"id": 8, "type": "circle", "pos": [5.6, 9.2], "rad": 1.0, "is_dynamic": false},
+    {"id": 9, "type": "circle", "pos": [9.4, 8.8], "rad": 1.0, "is_dynamic": false},
+    {"id": 10, "type": "circle", "pos": [11.8, 10.4], "rad": 0.85, "is_dynamic": false}
+  ]
+}
