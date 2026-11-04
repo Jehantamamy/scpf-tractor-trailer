@@ -3,68 +3,74 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-Official simulation codebase and experimental benchmark suite for the paper:
+Official simulation codebase and experimental benchmark suite for the publication:
 
 > **A Gap-Informed Stateful Circular Potential Field with Articulation Invariance for Autonomous Tractor-Trailer Navigation in Constrained Environments**  
 > *Aries Jehan Tamamy, Adha Imam Cahyadi, and Igi Ardiyanto*  
 > Published in / Submitted to: *International Journal of Intelligent Engineering and Systems (IJIES)*  
-> Correspondence: `jehantammy@dsn.dinus.ac.id`
+> Correspondence: `jehantammy@dsn.dinus.ac.id`  
+> Department of Electrical Engineering and Information Technology, Universitas Gadjah Mada, Yogyakarta, Indonesia  
+> Department of Informatics, Universitas Dian Nuswantoro, Semarang, Indonesia  
 
 ---
 
-## 📌 Overview
+## Overview
 
-This repository provides the genuine simulation framework for autonomous tractor-trailer navigation in tightly constrained, obstacle-dense environments. Standard Artificial Potential Fields (APF) suffer from acute local minima (GNRON traps) and cannot account for nonholonomic off-tracking or jackknife instability. 
+This repository provides the genuine numerical simulation framework for autonomous tractor-trailer navigation in tightly constrained, obstacle-dense environments. Classical Artificial Potential Field (APF) approaches suffer from severe local minima (GNRON traps), goal-blocking deadlocks, and failure to account for nonholonomic off-tracking or jackknife catastrophic instability.
 
-The proposed **Stateful Circular Potential Field (SCPF)** establishes:
-1. **Articulation Invariance & Counter-Torque Governor**: Active stabilization of the articulation angle ($\gamma$) against dangerous jackknife limits ($|\gamma| \le 70.0^\circ$).
-2. **Gap-Informed Spatial Subgoal Latching**: Automatic portal extraction from DBSCAN obstacle clusters and convex hull boundaries to guide the vehicle out of deep concavities (such as C-shaped traps).
-3. **Adaptive Trailer Clearance Zone**: A nonlinearly dilated repulsive field around the trailer axle scaled by instantaneous hitch articulation to eliminate trailer swept-path corner clipping.
-4. **Orthogonal Field Projection & Goal Attenuation**: Complete mitigation of repulsive oscillations and opposing trap vectors near target destinations.
+The proposed **Stateful Circular Potential Field (SCPF)** navigation framework introduces three modular subsystems:
+1. **Topological Awareness & Subgoal Latching (Module 1)**: Automated obstacle grouping via monotone chain convex hulls and line-of-sight aperture screening, establishing virtual escape subgoals ($W_{esc}$) that guide articulated vehicles out of non-convex concavities without memory loops.
+2. **Dynamic Force Field Modulation (Module 2)**: Directionally stateful circulation around convex hulls with velocity-dependent hysteresis, orthogonal repulsive boundary projection ($\vec{F}_{att}^\perp$) preventing wall pinning, and asymptotic GNRON goal attenuation.
+3. **Nonholonomic Kinematic Safety & Jackknife Prevention (Module 3)**: Nonlinearly dilated trailer repulsive boundary ($\rho_{tr} = \rho_0(1 + k_\gamma |\gamma|)$), closed-loop counter-torque governor ($\tau_{jk}$) guaranteeing safe invariant set bounds ($|\gamma| \le 60.0^\circ \le 70.0^\circ$), and low-pass filtered steering execution.
+
+All benchmark results and spatial trajectories reported in the paper are reproduced directly via 4th-order Runge-Kutta numerical integration of the governing nonholonomic differential equations.
 
 ---
 
-## 🗂 Repository Structure
+## Repository Structure
 
 ```text
 scpf-simulation/
 ├── core/
-│   ├── config.py                 # Vehicle & environment parameter configurations
-│   ├── environment.py            # Static/dynamic obstacles & collision boundaries
-│   └── kinematics.py             # 4th-order Runge-Kutta (RK4) kinematics & actuator model
+│   ├── config.py                 # Simulation parameters and dataclass configuration
+│   ├── environment.py            # Static/dynamic obstacle models and collision boundaries
+│   ├── kinematics.py             # 4th-order Runge-Kutta (RK4) nonholonomic motion equations
+│   └── __init__.py
 ├── planners/
 │   ├── base_planner.py           # Abstract base controller interface
 │   ├── baseline_apf.py           # Classical Khatib Artificial Potential Field
 │   ├── cpf_planner.py            # Memoryless Circular Potential Field baseline
-│   └── scpf_planner.py           # Proposed Stateful Circular Potential Field (SCPF)
+│   ├── scpf_planner.py           # Proposed Stateful Circular Potential Field (SCPF)
+│   └── __init__.py
 ├── utils/
-│   ├── geometry_utils.py         # 2D Euclidean geometry & segment projection routines
-│   └── obstacle_clustering.py    # DBSCAN spatial clustering, convex hull & portal extraction
+│   ├── geometry_utils.py         # 2D Euclidean geometry, polygonal distance, capsule projection
+│   ├── obstacle_clustering.py    # Monotone chain convex hull, clustering & portal extraction
+│   └── __init__.py
 ├── scenarios/
-│   ├── gnron.json                # Scenario A: C-shape concavity trap
+│   ├── gnron.json                # Scenario A: Non-convex C-shape concavity trap
 │   ├── zigzag.json               # Scenario B: Narrow zigzag chicane corridor
-│   └── dense.json                # Scenario C: Dense clutter obstacle yard
+│   └── dense.json                # Scenario C: Dense clutter obstacle yard & GNRON target
 ├── figures/
-│   ├── experiments/              # Experimental simulation outputs (Figs. 6-15)
-│   └── schematics/               # Theoretical diagrams & vehicle schematics (Figs. 1-5)
+│   ├── experiments/              # Empirical simulation results in PDF and 300 DPI PNG (Figs. 6-15)
+│   └── schematics/               # Theoretical diagrams and architectural models (Figs. 1-5)
 ├── experiments/
-│   ├── run_canonical.py          # Table 2: Benchmark in canonical environments
-│   ├── run_monte_carlo.py        # Table 3: 100-trial statistical evaluation
-│   ├── run_ablation.py           # Table 4: Component ablation benchmark
-│   └── run_sensitivity.py        # Table 5: Parameter sensitivity analysis
-├── generate_experimental_figures.py  # Render experimental figures (Figs. 6-15)
-├── generate_schematic_figures.py     # Render theoretical schematics (Figs. 1-5)
-├── generate_all_figures.py           # Master script compiling all 15 figures
-├── run_benchmarks.py                 # One-command runner for all benchmarks and figures
-├── requirements.txt                  # Python library dependencies
+│   ├── run_canonical.py          # Table 2: Benchmark evaluation in canonical environments
+│   ├── run_monte_carlo.py        # Table 3: 100-trial statistical Monte Carlo evaluation
+│   ├── run_ablation.py           # Table 4: Quantitative modular ablation benchmarks
+│   ├── run_sensitivity.py        # Table 5: Hyperparameter sensitivity sweeps
+│   └── __init__.py
+├── generate_experimental_figures.py  # Self-contained generator for experimental graphs (Figs. 6-15)
+├── generate_schematic_figures.py     # Self-contained generator for theoretical schematics (Figs. 1-5)
+├── generate_all_figures.py           # Master script compiling all 15 publication figures
+├── run_benchmarks.py                 # One-command runner for all numerical benchmarks and figures
+├── requirements.txt                  # Python dependencies
 ├── LICENSE                           # MIT License
-└── README.md                         # Project documentation
-
+└── README.md                         # Technical documentation
 ```
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. **Clone the repository:**
    ```bash
@@ -88,65 +94,64 @@ scpf-simulation/
 
 ---
 
-## 🚀 Quickstart & Full Reproducibility
+## Quickstart and Full Reproducibility
 
-To run all benchmarks and regenerate all 15 publication figures in a single command:
+To execute the entire experimental benchmark suite and regenerate all 15 publication-grade figures in a single command:
 
 ```bash
 python run_benchmarks.py
 ```
 
-### Reproducing Individual Tables and Figures:
+### Reproducing Individual Manuscript Results:
 
 - **Table 2 (Canonical Scenarios Performance Comparison):**
   ```bash
   python experiments/run_canonical.py
   ```
-  Evaluates Baseline APF, CPF, and SCPF across *Baseline, C-Shape Entrance, C-Shape Escape, Zigzag Corridor,* and *Dense Clutter*.
+  Evaluates Baseline APF, CPF, and SCPF across *Baseline U-Cavity, C-Shape Entrance, C-Shape Escape, Zigzag Corridor,* and *Dense Clutter*.
 
 - **Table 3 (Monte Carlo 100-Trial Statistical Evaluation):**
   ```bash
   python experiments/run_monte_carlo.py
   ```
-  Evaluates success rates, local minima traps, jackknife rates, and IQR metrics across 100 multi-directional trials.
+  Evaluates success rates, local minima traps, jackknife rates, and interquartile range (IQR) clearance metrics across 100 multi-directional randomized trials in a 50 m x 50 m obstacle yard.
 
-- **Table 4 (Quantitative Ablation Benchmark):**
+- **Table 4 (Quantitative Modular Ablation Benchmark):**
   ```bash
   python experiments/run_ablation.py
   ```
-  Evaluates Full SCPF vs. No Hysteresis, No Orthogonal Projection, and Base APF.
+  Evaluates Full SCPF against isolated modular ablations: without Subgoal Latch, without Orthogonal Projection, without Counter-Torque Governor, without Trailer Clearance Dilation, and without Convex Hull Clustering.
 
-- **Table 5 (Parameter Sensitivity Benchmark):**
+- **Table 5 (Parametric Sensitivity Benchmark):**
   ```bash
   python experiments/run_sensitivity.py
   ```
-  Sweeps parameters $k_{\text{circ}}$, $k_\gamma$, $k_{\text{jk}}$, and $k_{\text{rep}}$.
+  Performs parameter sweeps over circulation gain $k_{\text{circ}}$, trailer dilation gain $k_\gamma$, jackknife damping gain $k_{\text{jk}}$, and repulsive gain $k_{\text{rep}}$.
 
-- **Generate Experimental Figures (Figures 6–15):**
+- **Regenerate Experimental Figures (Figures 6–15):**
   ```bash
   python generate_experimental_figures.py
   ```
-  Renders the 10 experimental trajectory and benchmark graphs into `figures/experiments/`.
+  Generates the 10 experimental trajectory, stability phase portrait, and statistical figures into `figures/experiments/`.
 
-- **Generate Theoretical & Schematic Diagrams (Figures 1–5):**
+- **Regenerate Conceptual & Schematic Diagrams (Figures 1–5):**
   ```bash
   python generate_schematic_figures.py
   ```
-  Renders the 5 kinematic and architectural schematics into `figures/schematics/`.
+  Generates the 5 theoretical kinematic and control architecture diagrams into `figures/schematics/`.
 
-- **Regenerate All Publication Figures:**
+- **Regenerate All 15 Publication Figures:**
   ```bash
   python generate_all_figures.py
   ```
-  Compiles and organizes all 15 figures.
-
+  Executes both figure generators sequentially, saving vector PDF and 300 DPI PNG outputs.
 
 ---
 
-## 📊 Summary of Experimental Results (from Manuscript)
+## Experimental Benchmarks Summary (from Manuscript)
 
-### Table 2: Performance in Canonical Environments
-| Scenario | Planner | Status | Path Length ($m$) | Max Articulation $|\gamma|_{\max}$ | Min Clearance ($m$) | Mean Latency ($ms$) |
+### Table 2: Benchmark in Canonical Environments
+| Scenario | Planner | Outcome | Path Length ($m$) | Max Articulation $|\gamma|_{\max}$ | Min Clearance ($m$) | Mean Cycle Latency ($ms$) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
 | **Baseline** | APF | Collision | 4.20 | 2.7° | 0.00 | 0.03 |
 | | CPF | Success | 16.70 | 55.8° | 0.33 | 0.05 |
@@ -163,9 +168,9 @@ python run_benchmarks.py
 
 ---
 
-## 📜 Citation
+## Citation
 
-If you use this simulation software or refer to our findings in your research, please cite our paper:
+If you utilize this simulation framework or reference the findings in your academic work, please cite:
 
 ```bibtex
 @article{tamamy2026scpf,
@@ -181,6 +186,6 @@ If you use this simulation software or refer to our findings in your research, p
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
