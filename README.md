@@ -63,7 +63,7 @@ scpf-simulation/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/aries-tamamy/scpf-tractor-trailer.git
+   git clone https://github.com/Jehantamamy/scpf-tractor-trailer.git
    cd scpf-tractor-trailer
    ```
 
