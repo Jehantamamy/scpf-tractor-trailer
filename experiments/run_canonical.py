@@ -160,7 +160,7 @@ def run_single_simulation(planner_class, scenario_name: str, is_scpf: bool = Fal
 
         # Jackknife terminal check for baselines
         if not is_scpf and gamma_deg >= 70.0:
-            status = f"Jackknife ({gamma_deg:.1f}°)"
+            status = f"Jackknife ({gamma_deg:.1f} deg)"
             break
 
         # Check local clearance

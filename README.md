@@ -44,17 +44,22 @@ scpf-simulation/
 │   ├── gnron.json                # Scenario A: C-shape concavity trap
 │   ├── zigzag.json               # Scenario B: Narrow zigzag chicane corridor
 │   └── dense.json                # Scenario C: Dense clutter obstacle yard
-├── figures/                      # Publication-grade vector PDF & 300-DPI PNG figures (Figs. 1-15)
+├── figures/
+│   ├── experiments/              # Experimental simulation outputs (Figs. 6-15)
+│   └── schematics/               # Theoretical diagrams & vehicle schematics (Figs. 1-5)
 ├── experiments/
 │   ├── run_canonical.py          # Table 2: Benchmark in canonical environments
 │   ├── run_monte_carlo.py        # Table 3: 100-trial statistical evaluation
 │   ├── run_ablation.py           # Table 4: Component ablation benchmark
 │   └── run_sensitivity.py        # Table 5: Parameter sensitivity analysis
-├── generate_all_figures.py       # Master script to render all 15 publication figures
-├── run_benchmarks.py             # One-command runner for all benchmarks and figures
-├── requirements.txt              # Python library dependencies
-├── LICENSE                       # MIT License
-└── README.md                     # Project documentation
+├── generate_experimental_figures.py  # Render experimental figures (Figs. 6-15)
+├── generate_schematic_figures.py     # Render theoretical schematics (Figs. 1-5)
+├── generate_all_figures.py           # Master script compiling all 15 figures
+├── run_benchmarks.py                 # One-command runner for all benchmarks and figures
+├── requirements.txt                  # Python library dependencies
+├── LICENSE                           # MIT License
+└── README.md                         # Project documentation
+
 ```
 
 ---
@@ -117,11 +122,24 @@ python run_benchmarks.py
   ```
   Sweeps parameters $k_{\text{circ}}$, $k_\gamma$, $k_{\text{jk}}$, and $k_{\text{rep}}$.
 
-- **Regenerate Publication Figures (Figures 1–15):**
+- **Generate Experimental Figures (Figures 6–15):**
+  ```bash
+  python generate_experimental_figures.py
+  ```
+  Renders the 10 experimental trajectory and benchmark graphs into `figures/experiments/`.
+
+- **Generate Theoretical & Schematic Diagrams (Figures 1–5):**
+  ```bash
+  python generate_schematic_figures.py
+  ```
+  Renders the 5 kinematic and architectural schematics into `figures/schematics/`.
+
+- **Regenerate All Publication Figures:**
   ```bash
   python generate_all_figures.py
   ```
-  Outputs high-resolution vector PDF and 300-DPI PNG files directly into `figures/`.
+  Compiles and organizes all 15 figures.
+
 
 ---
 
