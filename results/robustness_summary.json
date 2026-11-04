@@ -1,0 +1,225 @@
+{
+ "nominal": {
+  "clutter_g0": {
+   "n": 2,
+   "outcomes": {
+    "success": 2
+   },
+   "peak_gamma_max": 64.19078909019493,
+   "rate_violations": 0
+  },
+  "escape_set": {
+   "n": 36,
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 65.54360954432684,
+   "rate_violations": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.91517904212117,
+   "rate_violations": 0
+  },
+  "zigzag_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 1,
+    "success": 1
+   },
+   "peak_gamma_max": 59.52702640731507,
+   "rate_violations": 0
+  }
+ },
+ "slew 0.5 rad/s": {
+  "clutter_g0": {
+   "n": 2,
+   "outcomes": {
+    "success": 2
+   },
+   "peak_gamma_max": 67.07645667795241,
+   "rate_violations": 0
+  },
+  "escape_set": {
+   "n": 36,
+   "outcomes": {
+    "success": 14,
+    "collision": 22
+   },
+   "peak_gamma_max": 68.92533237372871,
+   "rate_violations": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "outcomes": {
+    "collision": 27,
+    "success": 73
+   },
+   "peak_gamma_max": 64.57943592908504,
+   "rate_violations": 0
+  },
+  "zigzag_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 2
+   },
+   "peak_gamma_max": 63.17689712590392,
+   "rate_violations": 0
+  }
+ },
+ "delay 2 steps": {
+  "clutter_g0": {
+   "n": 2,
+   "outcomes": {
+    "success": 2
+   },
+   "peak_gamma_max": 69.40788898893042,
+   "rate_violations": 0
+  },
+  "escape_set": {
+   "n": 36,
+   "outcomes": {
+    "success": 18,
+    "collision": 13,
+    "jackknife": 5
+   },
+   "peak_gamma_max": 70.59567771341008,
+   "rate_violations": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "outcomes": {
+    "collision": 23,
+    "success": 77
+   },
+   "peak_gamma_max": 67.55697786500038,
+   "rate_violations": 0
+  },
+  "zigzag_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 2
+   },
+   "peak_gamma_max": 65.03103627815676,
+   "rate_violations": 0
+  }
+ },
+ "noise 0.05 m": {
+  "clutter_g0": {
+   "n": 2,
+   "outcomes": {
+    "success": 2
+   },
+   "peak_gamma_max": 64.20933757129119,
+   "rate_violations": 0
+  },
+  "escape_set": {
+   "n": 36,
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 65.54360954432684,
+   "rate_violations": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "outcomes": {
+    "success": 95,
+    "collision": 4,
+    "trapped": 1
+   },
+   "peak_gamma_max": 64.83209947997148,
+   "rate_violations": 0
+  },
+  "zigzag_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 1,
+    "success": 1
+   },
+   "peak_gamma_max": 59.52702640731507,
+   "rate_violations": 0
+  }
+ },
+ "noise 0.10 m": {
+  "clutter_g0": {
+   "n": 2,
+   "outcomes": {
+    "success": 2
+   },
+   "peak_gamma_max": 64.22757459217631,
+   "rate_violations": 0
+  },
+  "escape_set": {
+   "n": 36,
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 67.01556903083456,
+   "rate_violations": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "outcomes": {
+    "success": 94,
+    "collision": 6
+   },
+   "peak_gamma_max": 63.35972674864928,
+   "rate_violations": 0
+  },
+  "zigzag_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 1,
+    "success": 1
+   },
+   "peak_gamma_max": 59.52702640731507,
+   "rate_violations": 0
+  }
+ },
+ "v 1.5 m/s": {
+  "clutter_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 1,
+    "success": 1
+   },
+   "peak_gamma_max": 67.91989898993594,
+   "rate_violations": 0
+  },
+  "escape_set": {
+   "n": 36,
+   "outcomes": {
+    "success": 23,
+    "collision": 13
+   },
+   "peak_gamma_max": 68.80799850158866,
+   "rate_violations": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "outcomes": {
+    "collision": 22,
+    "success": 78
+   },
+   "peak_gamma_max": 68.5137383839141,
+   "rate_violations": 0
+  },
+  "zigzag_g0": {
+   "n": 2,
+   "outcomes": {
+    "collision": 2
+   },
+   "peak_gamma_max": 61.529413904813694,
+   "rate_violations": 0
+  }
+ }
+}

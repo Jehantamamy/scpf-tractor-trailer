@@ -1,35 +1,132 @@
 {
-  "Baseline APF": {
-    "success_rate": 95.0,
-    "gnron_trap": 0.0,
-    "jackknife_rate": 5.0,
-    "topol_infeas": 0.0,
-    "length_median": 21.898703472013626,
-    "length_iqr": 2.598403640790231,
-    "gamma_median": 51.39125265236428,
-    "gamma_iqr": 31.959314407335324,
-    "num_trials": 100
+ "n_trials": 100,
+ "n_feasible_body": 100,
+ "n_feasible_swept": 100,
+ "planners": {
+  "APF": {
+   "all": {
+    "success": 46,
+    "n": 100,
+    "rate": 0.46,
+    "ci95": [
+     0.3656080823843,
+     0.5573513975172198
+    ]
+   },
+   "feasible_body": {
+    "success": 46,
+    "n": 100,
+    "rate": 0.46,
+    "ci95": [
+     0.3656080823843,
+     0.5573513975172198
+    ]
+   },
+   "feasible_swept": {
+    "success": 46,
+    "n": 100,
+    "rate": 0.46,
+    "ci95": [
+     0.3656080823843,
+     0.5573513975172198
+    ]
+   },
+   "outcomes": {
+    "collision": 47,
+    "success": 46,
+    "jackknife": 7
+   },
+   "peak_gamma_max": 72.08852923282669,
+   "mean_path_length_success": 64.63096832819636,
+   "mean_chatter_success": 0.0,
+   "min_clearance_success": 0.05565822428725118
   },
-  "CPF (Adaptive)": {
-    "success_rate": 98.0,
-    "gnron_trap": 0.0,
-    "jackknife_rate": 2.0,
-    "topol_infeas": 0.0,
-    "length_median": 21.39950393312504,
-    "length_iqr": 1.5736327975542856,
-    "gamma_median": 35.8964124887644,
-    "gamma_iqr": 29.495443593796082,
-    "num_trials": 100
+  "CPF": {
+   "all": {
+    "success": 65,
+    "n": 100,
+    "rate": 0.65,
+    "ci95": [
+     0.5525444321839044,
+     0.7363575181853967
+    ]
+   },
+   "feasible_body": {
+    "success": 65,
+    "n": 100,
+    "rate": 0.65,
+    "ci95": [
+     0.5525444321839044,
+     0.7363575181853967
+    ]
+   },
+   "feasible_swept": {
+    "success": 65,
+    "n": 100,
+    "rate": 0.65,
+    "ci95": [
+     0.5525444321839044,
+     0.7363575181853967
+    ]
+   },
+   "outcomes": {
+    "collision": 35,
+    "success": 65
+   },
+   "peak_gamma_max": 53.361889976952966,
+   "mean_path_length_success": 63.52401239393927,
+   "mean_chatter_success": 0.0,
+   "min_clearance_success": 0.0008363642442810632
   },
-  "SCPF (Proposed)": {
-    "success_rate": 92.0,
-    "gnron_trap": 6.0,
-    "jackknife_rate": 0.0,
-    "topol_infeas": 2.0,
-    "length_median": 22.049318905557726,
-    "length_iqr": 2.349061946103461,
-    "gamma_median": 29.73198434089744,
-    "gamma_iqr": 14.054017728846127,
-    "num_trials": 100
+  "SCPF": {
+   "all": {
+    "success": 96,
+    "n": 100,
+    "rate": 0.96,
+    "ci95": [
+     0.9016292850152788,
+     0.9843366961172447
+    ]
+   },
+   "feasible_body": {
+    "success": 96,
+    "n": 100,
+    "rate": 0.96,
+    "ci95": [
+     0.9016292850152788,
+     0.9843366961172447
+    ]
+   },
+   "feasible_swept": {
+    "success": 96,
+    "n": 100,
+    "rate": 0.96,
+    "ci95": [
+     0.9016292850152788,
+     0.9843366961172447
+    ]
+   },
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.91517904212117,
+   "mean_path_length_success": 65.9729198785584,
+   "mean_chatter_success": 0.0,
+   "min_clearance_success": 0.027759211986003573
   }
+ },
+ "paired": {
+  "SCPF_vs_APF": {
+   "scpf_only": 50,
+   "other_only": 0,
+   "mcnemar_p": 1.7763568394002505e-15
+  },
+  "SCPF_vs_CPF": {
+   "scpf_only": 31,
+   "other_only": 0,
+   "mcnemar_p": 9.313225746154785e-10
+  }
+ }
 }

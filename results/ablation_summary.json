@@ -1,0 +1,812 @@
+{
+ "Full SCPF": {
+  "escape_set": {
+   "n": 36,
+   "success": 30,
+   "ci95": [
+    0.6810920555117621,
+    0.9212955245089851
+   ],
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 65.54360954432684,
+   "governor_episodes": 30
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 96,
+   "ci95": [
+    0.9016292850152788,
+    0.9843366961172447
+   ],
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.91517904212117,
+   "governor_episodes": 1
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432690860833,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.698934381539758,
+    "peak_gamma_deg": 48.225135729508104,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.257371322324592,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498782337365668,
+    "peak_gamma_deg": 51.17261744977864,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.354731481963,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "success",
+    "path_length": 38.39529360667019,
+    "peak_gamma_deg": 65.53026720999699,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5762767171030522,
+    "governor_steps": 34
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.79807096038572,
+    "peak_gamma_deg": 56.27373551751212,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5189096024476694,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 26.097909133593056,
+    "peak_gamma_deg": 62.55386997404053,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5057318413180907,
+    "governor_steps": 5
+   }
+  }
+ },
+ "w/o governor (NCT)": {
+  "escape_set": {
+   "n": 36,
+   "success": 9,
+   "ci95": [
+    0.13750477596964275,
+    0.410704539014797
+   ],
+   "outcomes": {
+    "jackknife": 21,
+    "success": 9,
+    "collision": 6
+   },
+   "peak_gamma_max": 71.70821094298545,
+   "governor_episodes": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 96,
+   "ci95": [
+    0.9016292850152788,
+    0.9843366961172447
+   ],
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "jackknife": 1
+   },
+   "peak_gamma_max": 70.56721668192328,
+   "governor_episodes": 0
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432690860833,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.698934381539758,
+    "peak_gamma_deg": 48.225135729508104,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.257371322324592,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498782337365668,
+    "peak_gamma_deg": 51.17261744977864,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.354731481963,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "jackknife",
+    "path_length": 2.1989939685493773,
+    "peak_gamma_deg": 70.1882772315438,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.7230015851436882,
+    "governor_steps": 0
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.79807096038572,
+    "peak_gamma_deg": 56.27373551751212,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5189096024476694,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 26.097908191608635,
+    "peak_gamma_deg": 62.55386997404053,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5057318413180907,
+    "governor_steps": 0
+   }
+  }
+ },
+ "w/o hull/subgoals": {
+  "escape_set": {
+   "n": 36,
+   "success": 0,
+   "ci95": [
+    0.0,
+    0.09641862996887933
+   ],
+   "outcomes": {
+    "collision": 36
+   },
+   "peak_gamma_max": 66.3050171832702,
+   "governor_episodes": 20
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 75,
+   "ci95": [
+    0.6569553637346054,
+    0.8245478868808965
+   ],
+   "outcomes": {
+    "collision": 25,
+    "success": 75
+   },
+   "peak_gamma_max": 64.46624883703724,
+   "governor_episodes": 1
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432690860833,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "collision",
+    "path_length": 13.59792742976577,
+    "peak_gamma_deg": 47.397387732798784,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "timeout",
+    "path_length": 149.99273891344586,
+    "peak_gamma_deg": 43.217397315282504,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.819304137428058,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "collision",
+    "path_length": 4.5990101571523425,
+    "peak_gamma_deg": 46.398749332320996,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 35.49810457711638,
+    "peak_gamma_deg": 54.62630284219647,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.6226351133283785,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "collision",
+    "path_length": 9.098205331632673,
+    "peak_gamma_deg": 51.07512120353866,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   }
+  }
+ },
+ "w/o gap screening": {
+  "escape_set": {
+   "n": 36,
+   "success": 30,
+   "ci95": [
+    0.6810920555117621,
+    0.9212955245089851
+   ],
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 65.54360954432684,
+   "governor_episodes": 30
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 80,
+   "ci95": [
+    0.7111708336357507,
+    0.8666330671028517
+   ],
+   "outcomes": {
+    "collision": 20,
+    "success": 80
+   },
+   "peak_gamma_max": 64.46624883703724,
+   "governor_episodes": 1
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432690860833,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.698934381539758,
+    "peak_gamma_deg": 48.225135729508104,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.257371322324592,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498782337365668,
+    "peak_gamma_deg": 51.17261744977864,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.354731481963,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "success",
+    "path_length": 38.39529360667019,
+    "peak_gamma_deg": 65.53026720999699,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5762767171030522,
+    "governor_steps": 34
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.79807096038572,
+    "peak_gamma_deg": 56.27373551751212,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5189096024476694,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "collision",
+    "path_length": 9.098205331632673,
+    "peak_gamma_deg": 51.07512120353866,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   }
+  }
+ },
+ "w/o projection": {
+  "escape_set": {
+   "n": 36,
+   "success": 29,
+   "ci95": [
+    0.649719568678599,
+    0.9024690463404192
+   ],
+   "outcomes": {
+    "success": 29,
+    "collision": 7
+   },
+   "peak_gamma_max": 65.54360954432684,
+   "governor_episodes": 30
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 96,
+   "ci95": [
+    0.9016292850152788,
+    0.9843366961172447
+   ],
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.58210250205593,
+   "governor_episodes": 2
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 16.999552133601025,
+    "peak_gamma_deg": 34.406362732086045,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.409644113756912,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.298969194685675,
+    "peak_gamma_deg": 46.1436673671714,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.9885042092606472,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498953015179543,
+    "peak_gamma_deg": 42.4656903661272,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.0009125504576446,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "success",
+    "path_length": 38.3951133551226,
+    "peak_gamma_deg": 65.53026720999699,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.4438939306222007,
+    "governor_steps": 35
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.29817020103442,
+    "peak_gamma_deg": 56.54898569639886,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.43506137217543284,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 25.098108128442725,
+    "peak_gamma_deg": 61.50805154058829,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5047131441044179,
+    "governor_steps": 4
+   }
+  }
+ },
+ "w/o hysteresis": {
+  "escape_set": {
+   "n": 36,
+   "success": 0,
+   "ci95": [
+    0.0,
+    0.09641862996887933
+   ],
+   "outcomes": {
+    "trapped": 27,
+    "collision": 4,
+    "timeout": 5
+   },
+   "peak_gamma_max": 66.44686593194078,
+   "governor_episodes": 34
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 67,
+   "ci95": [
+    0.5730534371634074,
+    0.754368773255134
+   ],
+   "outcomes": {
+    "success": 67,
+    "collision": 31,
+    "trapped": 2
+   },
+   "peak_gamma_max": 66.292426649441,
+   "governor_episodes": 3
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "collision",
+    "path_length": 4.599944088201325,
+    "peak_gamma_deg": 8.37915714151714,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "collision",
+    "path_length": 5.799070764382489,
+    "peak_gamma_deg": 54.107531003111625,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498754247297638,
+    "peak_gamma_deg": 54.10032819379712,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.311700205502472,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "timeout",
+    "path_length": 149.9662229915971,
+    "peak_gamma_deg": 65.53026720999699,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5255149906704134,
+    "governor_steps": 1284
+   },
+   "zigzag": {
+    "outcome": "collision",
+    "path_length": 14.499010052874103,
+    "peak_gamma_deg": 40.124782164629735,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 47.9925652108097,
+    "peak_gamma_deg": 65.92503202423555,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5198594196988389,
+    "governor_steps": 129
+   }
+  }
+ },
+ "w/o trailer zone": {
+  "escape_set": {
+   "n": 36,
+   "success": 30,
+   "ci95": [
+    0.6810920555117621,
+    0.9212955245089851
+   ],
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 66.52267189270978,
+   "governor_episodes": 30
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 96,
+   "ci95": [
+    0.9016292850152788,
+    0.9843366961172447
+   ],
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.46926712923756,
+   "governor_episodes": 1
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432677831735,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.59890158120418,
+    "peak_gamma_deg": 48.225135729508104,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.2554457277273983,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498773310327119,
+    "peak_gamma_deg": 51.586830737127826,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.3624315446116504,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "success",
+    "path_length": 37.09589890403168,
+    "peak_gamma_deg": 66.18079802526938,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5950901606724727,
+    "governor_steps": 29
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.398043076856816,
+    "peak_gamma_deg": 55.83462068325402,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5142496774942735,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 25.898144798738397,
+    "peak_gamma_deg": 58.022081737200146,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.49815288722472734,
+    "governor_steps": 0
+   }
+  }
+ },
+ "w/o goal attenuation": {
+  "escape_set": {
+   "n": 36,
+   "success": 30,
+   "ci95": [
+    0.6810920555117621,
+    0.9212955245089851
+   ],
+   "outcomes": {
+    "success": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 65.54360954432684,
+   "governor_episodes": 30
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 96,
+   "ci95": [
+    0.9016292850152788,
+    0.9843366961172447
+   ],
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.91517904212117,
+   "governor_episodes": 1
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432690860833,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.698934381539758,
+    "peak_gamma_deg": 48.225135729508104,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.257371322324592,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498782336707434,
+    "peak_gamma_deg": 51.17261744977864,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.354731481963,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "success",
+    "path_length": 38.39529360667019,
+    "peak_gamma_deg": 65.53026720999699,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5762767171030522,
+    "governor_steps": 34
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.7980709756085,
+    "peak_gamma_deg": 56.27373551751212,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5189096024476694,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 26.497973519604084,
+    "peak_gamma_deg": 62.55386997404053,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5057318413180907,
+    "governor_steps": 5
+   }
+  }
+ },
+ "w/o governor + trailer zone": {
+  "escape_set": {
+   "n": 36,
+   "success": 0,
+   "ci95": [
+    0.0,
+    0.09641862996887933
+   ],
+   "outcomes": {
+    "jackknife": 30,
+    "collision": 6
+   },
+   "peak_gamma_max": 72.57982205496683,
+   "governor_episodes": 0
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 96,
+   "ci95": [
+    0.9016292850152788,
+    0.9843366961172447
+   ],
+   "outcomes": {
+    "success": 96,
+    "collision": 3,
+    "jackknife": 1
+   },
+   "peak_gamma_max": 70.10793225065191,
+   "governor_episodes": 0
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "success",
+    "path_length": 17.299432677831735,
+    "peak_gamma_deg": 39.83059985225911,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.5569286087159704,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "success",
+    "path_length": 26.59890158120418,
+    "peak_gamma_deg": 48.225135729508104,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.2554457277273983,
+    "governor_steps": 0
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498773310327119,
+    "peak_gamma_deg": 51.586830737127826,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.3624315446116504,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "jackknife",
+    "path_length": 2.1989938610316946,
+    "peak_gamma_deg": 70.19363617712008,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.7230401010885927,
+    "governor_steps": 0
+   },
+   "zigzag": {
+    "outcome": "success",
+    "path_length": 34.398043076856816,
+    "peak_gamma_deg": 55.83462068325402,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5142496774942735,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 25.898144798738397,
+    "peak_gamma_deg": 58.022081737200146,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.49815288722472734,
+    "governor_steps": 0
+   }
+  }
+ },
+ "w/o hysteresis + projection": {
+  "escape_set": {
+   "n": 36,
+   "success": 0,
+   "ci95": [
+    0.0,
+    0.09641862996887933
+   ],
+   "outcomes": {
+    "trapped": 17,
+    "collision": 12,
+    "timeout": 7
+   },
+   "peak_gamma_max": 66.4699348139712,
+   "governor_episodes": 34
+  },
+  "monte_carlo": {
+   "n": 100,
+   "success": 68,
+   "ci95": [
+    0.583373813107172,
+    0.7633085273359894
+   ],
+   "outcomes": {
+    "success": 68,
+    "collision": 31,
+    "trapped": 1
+   },
+   "peak_gamma_max": 65.6064915965629,
+   "governor_episodes": 1
+  },
+  "canonical": {
+   "baseline": {
+    "outcome": "collision",
+    "path_length": 4.5999761226874165,
+    "peak_gamma_deg": 3.5340958693133206,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "cshape_trap": {
+    "outcome": "collision",
+    "path_length": 13.697310677924419,
+    "peak_gamma_deg": 64.10236508707345,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 52
+   },
+   "cshape_entrance": {
+    "outcome": "success",
+    "path_length": 14.498923007083244,
+    "peak_gamma_deg": 45.774533229824044,
+    "chatter_deg": 0.0,
+    "min_clearance": 1.1748684117882948,
+    "governor_steps": 0
+   },
+   "cshape_escape": {
+    "outcome": "timeout",
+    "path_length": 149.9662387746065,
+    "peak_gamma_deg": 66.08824027614097,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.5301804405494797,
+    "governor_steps": 1298
+   },
+   "zigzag": {
+    "outcome": "collision",
+    "path_length": 14.199109059150112,
+    "peak_gamma_deg": 38.906246738623686,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.0,
+    "governor_steps": 0
+   },
+   "clutter": {
+    "outcome": "success",
+    "path_length": 29.397144453880127,
+    "peak_gamma_deg": 59.30466668267004,
+    "chatter_deg": 0.0,
+    "min_clearance": 0.4470972190113808,
+    "governor_steps": 0
+   }
+  }
+ }
+}

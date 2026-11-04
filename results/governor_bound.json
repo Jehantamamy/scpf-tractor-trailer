@@ -1,0 +1,121 @@
+[
+ {
+  "variant": "nominal",
+  "bound_deg": 7.857351920890317,
+  "simulated_deg": 6.605917860547575,
+  "peak_bound_deg": 67.85735192089032,
+  "within_limit": true,
+  "filtered_sequence_deg": [
+   45.0,
+   42.14,
+   37.84,
+   32.82
+  ]
+ },
+ {
+  "variant": "slew 0.5 rad/s",
+  "bound_deg": 11.635498007189799,
+  "simulated_deg": 9.814141547257472,
+  "peak_bound_deg": 71.6354980071898,
+  "within_limit": false,
+  "filtered_sequence_deg": [
+   45.0,
+   43.57,
+   41.42,
+   38.91,
+   36.23,
+   33.45,
+   30.63
+  ]
+ },
+ {
+  "variant": "slew 0.25 rad/s",
+  "bound_deg": 19.161241889608558,
+  "simulated_deg": 15.109543600568875,
+  "peak_bound_deg": 79.16124188960856,
+  "within_limit": false,
+  "filtered_sequence_deg": [
+   45.0,
+   44.28,
+   43.21,
+   41.96,
+   40.61,
+   39.23,
+   37.82,
+   36.39,
+   34.97,
+   33.54,
+   32.11,
+   30.68
+  ]
+ },
+ {
+  "variant": "alpha 0.3",
+  "bound_deg": 9.726423852653165,
+  "simulated_deg": 8.123203310678665,
+  "peak_bound_deg": 69.72642385265317,
+  "within_limit": true,
+  "filtered_sequence_deg": [
+   45.0,
+   43.28,
+   40.36,
+   36.59,
+   32.24
+  ]
+ },
+ {
+  "variant": "delay 1 step",
+  "bound_deg": 10.884357644362167,
+  "simulated_deg": 9.195095886624598,
+  "peak_bound_deg": 70.88435764436217,
+  "within_limit": false,
+  "filtered_sequence_deg": [
+   45.0,
+   45.0,
+   42.14,
+   37.84,
+   32.82
+  ]
+ },
+ {
+  "variant": "delay 2 steps",
+  "bound_deg": 13.911363367834017,
+  "simulated_deg": 11.724548748198558,
+  "peak_bound_deg": 73.91136336783401,
+  "within_limit": false,
+  "filtered_sequence_deg": [
+   45.0,
+   45.0,
+   45.0,
+   42.14,
+   37.84,
+   32.82
+  ]
+ },
+ {
+  "variant": "k_jk 5",
+  "bound_deg": 8.430309716021139,
+  "simulated_deg": 6.605917860547575,
+  "peak_bound_deg": 68.43030971602114,
+  "within_limit": true,
+  "filtered_sequence_deg": [
+   45.0,
+   42.14,
+   37.84,
+   32.82
+  ]
+ },
+ {
+  "variant": "v 1.5 m/s",
+  "bound_deg": 11.499548983770067,
+  "simulated_deg": 9.499570747564938,
+  "peak_bound_deg": 71.49954898377007,
+  "within_limit": false,
+  "filtered_sequence_deg": [
+   45.0,
+   42.14,
+   37.84,
+   32.82
+  ]
+ }
+]

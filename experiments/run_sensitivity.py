@@ -1,66 +1,49 @@
-"""Parameter Sensitivity Analysis Benchmark (Table 5 Replication).
+"""One-at-a-time sensitivity sweeps of SCPF gains (Fig. 10), evaluated on the
+100 Monte Carlo layouts and the escape start set."""
+from collections import defaultdict
+from common import run_all, save_csv, save_json, Params
+from scpf.scenarios import escape_starts
 
-Analyzes the robustness of SCPF against key hyperparameter sweeps:
-1. k_circ: Tangential circulating gain
-2. k_gamma: Adaptive trailer repulsion scaling gain
-3. k_jk: Counter-torque articulation governor gain
-4. k_rep: Standard obstacle repulsive gain
-"""
-import os
-import sys
+SWEEPS = {
+    "k_jk": [2.0, 5.0, 10.0, 15.0, 20.0],
+    "k_gamma": [0.0, 0.75, 1.5, 2.25, 3.0],
+    "k_t": [1.0, 1.75, 2.5, 3.25, 4.0],
+    "k_rep": [5.0, 7.5, 10.0, 12.5, 15.0],
+}
 
-# Ensure repository root is in sys.path
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if ROOT_DIR not in sys.path:
-    sys.path.insert(0, ROOT_DIR)
-
-from experiments.run_ablation import run_ablation_case
-
-
-def main():
-    print("=" * 76)
-    print("REPRODUCING TABLE 5: PARAMETER SENSITIVITY BENCHMARK")
-    print("=" * 76)
-
-    # 1. Sensitivity of k_circ (Tangential / Circular Gain) in C-Shape
-    k_circ_values = [5.0, 10.0, 15.0, 20.0]
-    print("\n--- 1. Sensitivity of k_circ (Tangential Force) in C_SHAPE ---")
-    print(f"{'k_circ':<10} | {'Status':<10} | {'Length (m)':<12} | {'Max Gamma':<10} | {'Chatter':<10}")
-    print("-" * 65)
-    for kv in k_circ_values:
-        res = run_ablation_case({"k_circ": kv}, "c_shape")
-        print(f"{kv:<10.1f} | {res['status']:<10} | {res['length']:<12.2f} | {res['max_gamma']:<10.2f} | {res['chattering']:<10.4f}")
-
-    # 2. Sensitivity of k_gamma (Adaptive Clearance Gain) in Clutter
-    k_gamma_values = [0.0, 1.0, 1.5, 3.0]
-    print("\n--- 2. Sensitivity of k_gamma (Adaptive Clearance) in CLUTTER ---")
-    print(f"{'k_gamma':<10} | {'Status':<10} | {'Length (m)':<12} | {'Max Gamma':<10} | {'Chatter':<10}")
-    print("-" * 65)
-    for kg in k_gamma_values:
-        res = run_ablation_case({"k_gamma": kg}, "clutter")
-        print(f"{kg:<10.1f} | {res['status']:<10} | {res['length']:<12.2f} | {res['max_gamma']:<10.2f} | {res['chattering']:<10.4f}")
-
-    # 3. Sensitivity of k_jk (Virtual Counter-Torque Gain) in Zigzag
-    k_jk_values = [2.0, 5.0, 8.0, 12.0, 16.0]
-    print("\n--- 3. Sensitivity of k_jk (Anti-Jackknife Gain) in ZIGZAG ---")
-    print(f"{'k_jk':<10} | {'Status':<10} | {'Length (m)':<12} | {'Max Gamma':<10} | {'Chatter':<10}")
-    print("-" * 65)
-    for kjk in k_jk_values:
-        res = run_ablation_case({"k_jk": kjk}, "zigzag")
-        print(f"{kjk:<10.1f} | {res['status']:<10} | {res['length']:<12.2f} | {res['max_gamma']:<10.2f} | {res['chattering']:<10.4f}")
-
-    # 4. Sensitivity of k_rep (Repulsive Gain) in Clutter
-    k_rep_values = [5.0, 8.0, 10.0, 15.0, 20.0]
-    print("\n--- 4. Sensitivity of k_rep (Repulsive Gain) in CLUTTER ---")
-    print(f"{'k_rep':<10} | {'Status':<10} | {'Length (m)':<12} | {'Max Gamma':<10} | {'Chatter':<10}")
-    print("-" * 65)
-    for krep in k_rep_values:
-        res = run_ablation_case({"k_rep": krep}, "clutter")
-        print(f"{krep:<10.1f} | {res['status']:<10} | {res['length']:<12.2f} | {res['max_gamma']:<10.2f} | {res['chattering']:<10.4f}")
-
-    print("=" * 76)
-    print("Sensitivity benchmark completed successfully.")
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    cases = []
+    for par, vals in SWEEPS.items():
+        for v in vals:
+            ov = {par: v}
+            for sd in range(100):
+                cases.append(dict(planner="SCPF", scene="mc", seed=sd, overrides=ov,
+                                  sweep=par, value=v, suite="monte_carlo"))
+            for (x, y, th) in escape_starts():
+                cases.append(dict(planner="SCPF", scene="cshape_escape", start=(x, y), theta0=th,
+                                  overrides=ov, sweep=par, value=v, suite="escape_set"))
+    rows = run_all(cases)
+    for r in rows:
+        r.pop("theta0", None)
+    save_csv(rows, "sensitivity.csv")
+    summ = defaultdict(list)
+    for par, vals in SWEEPS.items():
+        for v in vals:
+            sel = [r for r in rows if r["sweep"] == par and r["value"] == v]
+            ent = {"value": v}
+            for suite in ("monte_carlo", "escape_set"):
+                s2 = [r for r in sel if r["suite"] == suite]
+                succ = [r for r in s2 if r["outcome"] == "success"]
+                ent[suite] = {
+                    "success_rate": len(succ) / len(s2),
+                    "jackknife": sum(r["outcome"] == "jackknife" for r in s2),
+                    "peak_gamma_max": max(r["peak_gamma_deg"] for r in s2),
+                    "peak_gamma_mean": sum(r["peak_gamma_deg"] for r in s2) / len(s2),
+                    "chatter_mean": sum(r["chatter_deg"] for r in succ) / max(1, len(succ)),
+                    "clearance_mean": sum(r["min_clearance"] for r in succ) / max(1, len(succ)),
+                    "path_mean": sum(r["path_length"] for r in succ) / max(1, len(succ)),
+                }
+            summ[par].append(ent)
+            print(par, v, {s: round(ent[s]["success_rate"], 2) for s in ("monte_carlo", "escape_set")},
+                  round(ent["escape_set"]["peak_gamma_max"], 1), round(ent["monte_carlo"]["peak_gamma_max"], 1))
+    save_json(summ, "sensitivity_summary.json")

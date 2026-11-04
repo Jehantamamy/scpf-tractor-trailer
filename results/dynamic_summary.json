@@ -1,0 +1,92 @@
+{
+ "APF": {
+  "0.4": {
+   "success": 9,
+   "n": 9,
+   "min_clearance": 0.1400644298543238,
+   "peak_gamma_max": 66.85952572762078
+  },
+  "0.8": {
+   "success": 0,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 62.72773758844017
+  },
+  "1.2": {
+   "success": 2,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 72.16651143812679
+  },
+  "1.6": {
+   "success": 2,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 70.16840220203439
+  },
+  "all": {
+   "success": 13,
+   "n": 36
+  }
+ },
+ "CPF": {
+  "0.4": {
+   "success": 9,
+   "n": 9,
+   "min_clearance": 0.2805192046907268,
+   "peak_gamma_max": 31.62224069919484
+  },
+  "0.8": {
+   "success": 0,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 34.5344018515831
+  },
+  "1.2": {
+   "success": 1,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 64.4153000314701
+  },
+  "1.6": {
+   "success": 1,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 63.465727875887
+  },
+  "all": {
+   "success": 11,
+   "n": 36
+  }
+ },
+ "SCPF": {
+  "0.4": {
+   "success": 9,
+   "n": 9,
+   "min_clearance": 0.7098554896431782,
+   "peak_gamma_max": 35.27942134136995
+  },
+  "0.8": {
+   "success": 4,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 42.22362988638181
+  },
+  "1.2": {
+   "success": 0,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 66.37301013815423
+  },
+  "1.6": {
+   "success": 1,
+   "n": 9,
+   "min_clearance": 0.0,
+   "peak_gamma_max": 49.7939307706655
+  },
+  "all": {
+   "success": 14,
+   "n": 36
+  }
+ }
+}
