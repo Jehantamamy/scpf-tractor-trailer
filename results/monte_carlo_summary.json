@@ -1,0 +1,35 @@
+{
+  "Baseline APF": {
+    "success_rate": 95.0,
+    "gnron_trap": 0.0,
+    "jackknife_rate": 5.0,
+    "topol_infeas": 0.0,
+    "length_median": 21.898703472013626,
+    "length_iqr": 2.598403640790231,
+    "gamma_median": 51.39125265236428,
+    "gamma_iqr": 31.959314407335324,
+    "num_trials": 100
+  },
+  "CPF (Adaptive)": {
+    "success_rate": 98.0,
+    "gnron_trap": 0.0,
+    "jackknife_rate": 2.0,
+    "topol_infeas": 0.0,
+    "length_median": 21.39950393312504,
+    "length_iqr": 1.5736327975542856,
+    "gamma_median": 35.8964124887644,
+    "gamma_iqr": 29.495443593796082,
+    "num_trials": 100
+  },
+  "SCPF (Proposed)": {
+    "success_rate": 92.0,
+    "gnron_trap": 6.0,
+    "jackknife_rate": 0.0,
+    "topol_infeas": 2.0,
+    "length_median": 22.049318905557726,
+    "length_iqr": 2.349061946103461,
+    "gamma_median": 29.73198434089744,
+    "gamma_iqr": 14.054017728846127,
+    "num_trials": 100
+  }
+}

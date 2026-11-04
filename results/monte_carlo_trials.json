@@ -1,0 +1,1808 @@
+{
+  "Baseline APF": [
+    {
+      "seed": 0,
+      "status": "success",
+      "length": 22.596282443763467,
+      "max_gamma": 53.565649552128974
+    },
+    {
+      "seed": 1,
+      "status": "success",
+      "length": 20.899466883070385,
+      "max_gamma": 37.97983681800716
+    },
+    {
+      "seed": 2,
+      "status": "jackknife",
+      "length": 23.795385094672447,
+      "max_gamma": 70.41699466186958
+    },
+    {
+      "seed": 3,
+      "status": "success",
+      "length": 25.297124499653194,
+      "max_gamma": 56.48359667214323
+    },
+    {
+      "seed": 4,
+      "status": "success",
+      "length": 24.296531903611267,
+      "max_gamma": 61.83912236143697
+    },
+    {
+      "seed": 5,
+      "status": "success",
+      "length": 20.299992501938224,
+      "max_gamma": 4.251177165787037
+    },
+    {
+      "seed": 6,
+      "status": "success",
+      "length": 22.09831273863184,
+      "max_gamma": 56.78740509487337
+    },
+    {
+      "seed": 7,
+      "status": "success",
+      "length": 21.399486584989656,
+      "max_gamma": 26.111498501478284
+    },
+    {
+      "seed": 8,
+      "status": "success",
+      "length": 23.99711168187087,
+      "max_gamma": 56.93761631532086
+    },
+    {
+      "seed": 9,
+      "status": "success",
+      "length": 20.69974095861876,
+      "max_gamma": 23.17108098515593
+    },
+    {
+      "seed": 10,
+      "status": "success",
+      "length": 22.596403784100506,
+      "max_gamma": 59.447348184150265
+    },
+    {
+      "seed": 11,
+      "status": "success",
+      "length": 22.998285789967234,
+      "max_gamma": 61.770766263006124
+    },
+    {
+      "seed": 12,
+      "status": "success",
+      "length": 21.698998781438725,
+      "max_gamma": 45.18247309794981
+    },
+    {
+      "seed": 13,
+      "status": "success",
+      "length": 21.698786182927567,
+      "max_gamma": 52.800879669800096
+    },
+    {
+      "seed": 14,
+      "status": "success",
+      "length": 20.399954597859935,
+      "max_gamma": 9.608582796999222
+    },
+    {
+      "seed": 15,
+      "status": "success",
+      "length": 24.79642198717123,
+      "max_gamma": 63.2216974288762
+    },
+    {
+      "seed": 16,
+      "status": "success",
+      "length": 21.499033295235662,
+      "max_gamma": 46.71475084001441
+    },
+    {
+      "seed": 17,
+      "status": "jackknife",
+      "length": 15.897679918493507,
+      "max_gamma": 70.08244359718566
+    },
+    {
+      "seed": 18,
+      "status": "success",
+      "length": 20.399932444620315,
+      "max_gamma": 11.577119036990716
+    },
+    {
+      "seed": 19,
+      "status": "success",
+      "length": 23.99543527009307,
+      "max_gamma": 65.38270555971494
+    },
+    {
+      "seed": 20,
+      "status": "success",
+      "length": 21.29889965429926,
+      "max_gamma": 48.41127643909257
+    },
+    {
+      "seed": 21,
+      "status": "success",
+      "length": 22.197594206686183,
+      "max_gamma": 49.81472045132437
+    },
+    {
+      "seed": 22,
+      "status": "success",
+      "length": 21.699086552688833,
+      "max_gamma": 35.41295937871784
+    },
+    {
+      "seed": 23,
+      "status": "success",
+      "length": 22.198727718971963,
+      "max_gamma": 49.1407016539315
+    },
+    {
+      "seed": 24,
+      "status": "success",
+      "length": 23.09821486910961,
+      "max_gamma": 58.85869534601072
+    },
+    {
+      "seed": 25,
+      "status": "success",
+      "length": 20.499865072879942,
+      "max_gamma": 15.427587370054441
+    },
+    {
+      "seed": 26,
+      "status": "success",
+      "length": 23.498024161682835,
+      "max_gamma": 63.064123104018684
+    },
+    {
+      "seed": 27,
+      "status": "success",
+      "length": 20.89944416445549,
+      "max_gamma": 25.89983265406943
+    },
+    {
+      "seed": 28,
+      "status": "success",
+      "length": 20.299996340386333,
+      "max_gamma": 3.000105062576217
+    },
+    {
+      "seed": 29,
+      "status": "success",
+      "length": 20.399796018488296,
+      "max_gamma": 23.26823694491356
+    },
+    {
+      "seed": 30,
+      "status": "success",
+      "length": 21.898703472013626,
+      "max_gamma": 55.16784867665112
+    },
+    {
+      "seed": 31,
+      "status": "success",
+      "length": 20.599818496847583,
+      "max_gamma": 21.750727957410948
+    },
+    {
+      "seed": 32,
+      "status": "success",
+      "length": 20.399910647636048,
+      "max_gamma": 10.476027398948041
+    },
+    {
+      "seed": 33,
+      "status": "success",
+      "length": 21.998738087857745,
+      "max_gamma": 53.74736793577823
+    },
+    {
+      "seed": 34,
+      "status": "success",
+      "length": 20.299997891341956,
+      "max_gamma": 1.6192515183777088
+    },
+    {
+      "seed": 35,
+      "status": "success",
+      "length": 22.89827798655897,
+      "max_gamma": 59.45656089592501
+    },
+    {
+      "seed": 36,
+      "status": "success",
+      "length": 21.798859428835463,
+      "max_gamma": 50.101220858870754
+    },
+    {
+      "seed": 37,
+      "status": "success",
+      "length": 22.098609927633607,
+      "max_gamma": 56.83789323449239
+    },
+    {
+      "seed": 38,
+      "status": "success",
+      "length": 23.596614829728797,
+      "max_gamma": 65.36962871231717
+    },
+    {
+      "seed": 39,
+      "status": "success",
+      "length": 24.29696399676431,
+      "max_gamma": 64.59732798566631
+    },
+    {
+      "seed": 40,
+      "status": "success",
+      "length": 23.697918510135477,
+      "max_gamma": 63.01277120019998
+    },
+    {
+      "seed": 41,
+      "status": "success",
+      "length": 23.297139445289936,
+      "max_gamma": 56.081097826875016
+    },
+    {
+      "seed": 42,
+      "status": "success",
+      "length": 21.89860453299765,
+      "max_gamma": 55.90306864900852
+    },
+    {
+      "seed": 43,
+      "status": "success",
+      "length": 23.09736179378539,
+      "max_gamma": 58.153765246843506
+    },
+    {
+      "seed": 44,
+      "status": "jackknife",
+      "length": 17.295534760525584,
+      "max_gamma": 70.13157225823073
+    },
+    {
+      "seed": 45,
+      "status": "success",
+      "length": 23.697222252552923,
+      "max_gamma": 55.44373423111174
+    },
+    {
+      "seed": 46,
+      "status": "success",
+      "length": 20.39995383265707,
+      "max_gamma": 9.860575427850284
+    },
+    {
+      "seed": 47,
+      "status": "success",
+      "length": 24.297234197354662,
+      "max_gamma": 59.41678465939537
+    },
+    {
+      "seed": 48,
+      "status": "success",
+      "length": 25.496277254907284,
+      "max_gamma": 65.01948342068081
+    },
+    {
+      "seed": 49,
+      "status": "success",
+      "length": 24.497896092348594,
+      "max_gamma": 57.8180390065799
+    },
+    {
+      "seed": 50,
+      "status": "success",
+      "length": 23.596073241005513,
+      "max_gamma": 61.34956618211287
+    },
+    {
+      "seed": 51,
+      "status": "success",
+      "length": 20.59838631401378,
+      "max_gamma": 32.57157551255107
+    },
+    {
+      "seed": 52,
+      "status": "success",
+      "length": 20.999346892552733,
+      "max_gamma": 35.500562910462186
+    },
+    {
+      "seed": 53,
+      "status": "success",
+      "length": 20.299996338917524,
+      "max_gamma": 2.49170893027518
+    },
+    {
+      "seed": 54,
+      "status": "success",
+      "length": 20.29999780114837,
+      "max_gamma": 1.9392742988682616
+    },
+    {
+      "seed": 55,
+      "status": "success",
+      "length": 21.299035645845933,
+      "max_gamma": 47.28119080540065
+    },
+    {
+      "seed": 56,
+      "status": "success",
+      "length": 20.79976995160928,
+      "max_gamma": 17.965723631013688
+    },
+    {
+      "seed": 57,
+      "status": "success",
+      "length": 21.299165730783105,
+      "max_gamma": 44.013769705502575
+    },
+    {
+      "seed": 58,
+      "status": "success",
+      "length": 22.298053808113778,
+      "max_gamma": 55.138872059647944
+    },
+    {
+      "seed": 59,
+      "status": "success",
+      "length": 27.49472841792697,
+      "max_gamma": 59.80618406426595
+    },
+    {
+      "seed": 60,
+      "status": "success",
+      "length": 21.498862488697625,
+      "max_gamma": 41.62402956825918
+    },
+    {
+      "seed": 61,
+      "status": "success",
+      "length": 22.29803415099655,
+      "max_gamma": 54.010740686992555
+    },
+    {
+      "seed": 62,
+      "status": "success",
+      "length": 20.29999517089787,
+      "max_gamma": 3.641803695936465
+    },
+    {
+      "seed": 63,
+      "status": "success",
+      "length": 24.097178535026373,
+      "max_gamma": 65.0338293499619
+    },
+    {
+      "seed": 64,
+      "status": "success",
+      "length": 20.999580566202404,
+      "max_gamma": 28.873781763926335
+    },
+    {
+      "seed": 65,
+      "status": "success",
+      "length": 23.097672577568055,
+      "max_gamma": 59.04693037595756
+    },
+    {
+      "seed": 66,
+      "status": "success",
+      "length": 25.09522650227152,
+      "max_gamma": 61.15437269752256
+    },
+    {
+      "seed": 67,
+      "status": "success",
+      "length": 22.097922349957265,
+      "max_gamma": 62.8250267346013
+    },
+    {
+      "seed": 68,
+      "status": "success",
+      "length": 20.799758481137772,
+      "max_gamma": 24.62272997526358
+    },
+    {
+      "seed": 69,
+      "status": "success",
+      "length": 27.695837441171808,
+      "max_gamma": 60.434118287125166
+    },
+    {
+      "seed": 70,
+      "status": "success",
+      "length": 22.3982944074562,
+      "max_gamma": 52.05156597634131
+    },
+    {
+      "seed": 71,
+      "status": "success",
+      "length": 23.297668728485508,
+      "max_gamma": 54.485750341888725
+    },
+    {
+      "seed": 72,
+      "status": "success",
+      "length": 20.299981391156294,
+      "max_gamma": 6.085705576415911
+    },
+    {
+      "seed": 73,
+      "status": "success",
+      "length": 22.79651661255255,
+      "max_gamma": 69.02896725687476
+    },
+    {
+      "seed": 74,
+      "status": "success",
+      "length": 21.099489220094092,
+      "max_gamma": 34.259838352293784
+    },
+    {
+      "seed": 75,
+      "status": "success",
+      "length": 20.999599513756607,
+      "max_gamma": 29.021766722492956
+    },
+    {
+      "seed": 76,
+      "status": "success",
+      "length": 20.69960985611174,
+      "max_gamma": 32.78288259161375
+    },
+    {
+      "seed": 77,
+      "status": "success",
+      "length": 24.296765115466403,
+      "max_gamma": 64.39774370779595
+    },
+    {
+      "seed": 78,
+      "status": "success",
+      "length": 25.89756648781243,
+      "max_gamma": 66.4201297664395
+    },
+    {
+      "seed": 79,
+      "status": "success",
+      "length": 21.598559530776328,
+      "max_gamma": 51.39125265236428
+    },
+    {
+      "seed": 80,
+      "status": "success",
+      "length": 20.998863235489818,
+      "max_gamma": 44.890232185320905
+    },
+    {
+      "seed": 81,
+      "status": "success",
+      "length": 20.29998286049927,
+      "max_gamma": 5.035999683182864
+    },
+    {
+      "seed": 82,
+      "status": "success",
+      "length": 21.998692103883382,
+      "max_gamma": 54.5287312646172
+    },
+    {
+      "seed": 83,
+      "status": "success",
+      "length": 20.299999750455516,
+      "max_gamma": 0.6411907037971438
+    },
+    {
+      "seed": 84,
+      "status": "success",
+      "length": 21.398707084544323,
+      "max_gamma": 45.78342051738402
+    },
+    {
+      "seed": 85,
+      "status": "success",
+      "length": 23.798029177222542,
+      "max_gamma": 59.81873603220058
+    },
+    {
+      "seed": 86,
+      "status": "success",
+      "length": 20.79912712745011,
+      "max_gamma": 33.82368526098591
+    },
+    {
+      "seed": 87,
+      "status": "success",
+      "length": 26.19677240047235,
+      "max_gamma": 69.80161431691317
+    },
+    {
+      "seed": 88,
+      "status": "success",
+      "length": 20.299986959612326,
+      "max_gamma": 4.670386082775298
+    },
+    {
+      "seed": 89,
+      "status": "success",
+      "length": 20.398728817635615,
+      "max_gamma": 30.14325420886896
+    },
+    {
+      "seed": 90,
+      "status": "success",
+      "length": 20.499916447745626,
+      "max_gamma": 11.880742016135647
+    },
+    {
+      "seed": 91,
+      "status": "success",
+      "length": 22.398076975219215,
+      "max_gamma": 58.61321295966833
+    },
+    {
+      "seed": 92,
+      "status": "success",
+      "length": 21.998343201917834,
+      "max_gamma": 49.9459463163914
+    },
+    {
+      "seed": 93,
+      "status": "success",
+      "length": 24.397265132249633,
+      "max_gamma": 60.33579129998288
+    },
+    {
+      "seed": 94,
+      "status": "success",
+      "length": 20.399922221410986,
+      "max_gamma": 13.415836503104723
+    },
+    {
+      "seed": 95,
+      "status": "success",
+      "length": 24.99562647405392,
+      "max_gamma": 60.79971016349833
+    },
+    {
+      "seed": 96,
+      "status": "jackknife",
+      "length": 19.495732021423365,
+      "max_gamma": 70.41536742248938
+    },
+    {
+      "seed": 97,
+      "status": "jackknife",
+      "length": 7.2988869198503625,
+      "max_gamma": 71.26538402812278
+    },
+    {
+      "seed": 98,
+      "status": "success",
+      "length": 22.998230151397802,
+      "max_gamma": 60.90320334038418
+    },
+    {
+      "seed": 99,
+      "status": "success",
+      "length": 21.399165929710946,
+      "max_gamma": 44.9517480493107
+    }
+  ],
+  "CPF (Adaptive)": [
+    {
+      "seed": 0,
+      "status": "success",
+      "length": 21.698757225391393,
+      "max_gamma": 40.09347751254754
+    },
+    {
+      "seed": 1,
+      "status": "success",
+      "length": 20.799714073050318,
+      "max_gamma": 26.985264229783066
+    },
+    {
+      "seed": 2,
+      "status": "success",
+      "length": 23.99774600202142,
+      "max_gamma": 49.544138073698335
+    },
+    {
+      "seed": 3,
+      "status": "jackknife",
+      "length": 21.39727863289797,
+      "max_gamma": 70.66188931153525
+    },
+    {
+      "seed": 4,
+      "status": "success",
+      "length": 22.89836402031235,
+      "max_gamma": 50.380158681607
+    },
+    {
+      "seed": 5,
+      "status": "success",
+      "length": 20.299992963955543,
+      "max_gamma": 3.847027441929793
+    },
+    {
+      "seed": 6,
+      "status": "success",
+      "length": 21.4992865339693,
+      "max_gamma": 45.129556715523194
+    },
+    {
+      "seed": 7,
+      "status": "success",
+      "length": 21.299698179302876,
+      "max_gamma": 18.299884534433595
+    },
+    {
+      "seed": 8,
+      "status": "success",
+      "length": 22.898607723650223,
+      "max_gamma": 43.842477500113795
+    },
+    {
+      "seed": 9,
+      "status": "success",
+      "length": 20.599840729627804,
+      "max_gamma": 16.566787909419517
+    },
+    {
+      "seed": 10,
+      "status": "success",
+      "length": 21.898629066562776,
+      "max_gamma": 40.986688197844956
+    },
+    {
+      "seed": 11,
+      "status": "success",
+      "length": 22.099138818809376,
+      "max_gamma": 50.417995269253346
+    },
+    {
+      "seed": 12,
+      "status": "success",
+      "length": 21.399532308872793,
+      "max_gamma": 29.550978894881013
+    },
+    {
+      "seed": 13,
+      "status": "success",
+      "length": 21.399475557377283,
+      "max_gamma": 38.19666426119621
+    },
+    {
+      "seed": 14,
+      "status": "success",
+      "length": 20.3999623954755,
+      "max_gamma": 8.17894795533462
+    },
+    {
+      "seed": 15,
+      "status": "success",
+      "length": 22.198458821892547,
+      "max_gamma": 56.77177404667174
+    },
+    {
+      "seed": 16,
+      "status": "success",
+      "length": 21.29957503810457,
+      "max_gamma": 31.416502679163422
+    },
+    {
+      "seed": 17,
+      "status": "success",
+      "length": 20.798564725917906,
+      "max_gamma": 34.12767870653849
+    },
+    {
+      "seed": 18,
+      "status": "success",
+      "length": 20.399952060389623,
+      "max_gamma": 9.387808212375901
+    },
+    {
+      "seed": 19,
+      "status": "success",
+      "length": 22.29823383639456,
+      "max_gamma": 48.94715824250062
+    },
+    {
+      "seed": 20,
+      "status": "success",
+      "length": 21.09950050897836,
+      "max_gamma": 32.334304244629585
+    },
+    {
+      "seed": 21,
+      "status": "success",
+      "length": 21.699033616879902,
+      "max_gamma": 33.94960871248878
+    },
+    {
+      "seed": 22,
+      "status": "success",
+      "length": 21.59955612294602,
+      "max_gamma": 23.50502655206973
+    },
+    {
+      "seed": 23,
+      "status": "success",
+      "length": 21.899409108892574,
+      "max_gamma": 34.38849355983494
+    },
+    {
+      "seed": 24,
+      "status": "success",
+      "length": 22.299053443552864,
+      "max_gamma": 48.011722892183734
+    },
+    {
+      "seed": 25,
+      "status": "success",
+      "length": 20.39990707012145,
+      "max_gamma": 12.78924386090552
+    },
+    {
+      "seed": 26,
+      "status": "success",
+      "length": 22.89755590331753,
+      "max_gamma": 62.06018849499989
+    },
+    {
+      "seed": 27,
+      "status": "success",
+      "length": 20.799667188770016,
+      "max_gamma": 18.886130741457023
+    },
+    {
+      "seed": 28,
+      "status": "success",
+      "length": 20.299996490303133,
+      "max_gamma": 2.7145029816910258
+    },
+    {
+      "seed": 29,
+      "status": "success",
+      "length": 20.399883917315943,
+      "max_gamma": 17.063883975421433
+    },
+    {
+      "seed": 30,
+      "status": "success",
+      "length": 21.399425341365422,
+      "max_gamma": 41.0264812714022
+    },
+    {
+      "seed": 31,
+      "status": "success",
+      "length": 20.599892380977174,
+      "max_gamma": 15.814808389150139
+    },
+    {
+      "seed": 32,
+      "status": "success",
+      "length": 20.39992648326671,
+      "max_gamma": 8.953524760954622
+    },
+    {
+      "seed": 33,
+      "status": "success",
+      "length": 21.599438838496873,
+      "max_gamma": 40.44286238933872
+    },
+    {
+      "seed": 34,
+      "status": "success",
+      "length": 20.299997795783295,
+      "max_gamma": 1.660323733222256
+    },
+    {
+      "seed": 35,
+      "status": "success",
+      "length": 22.099064119205252,
+      "max_gamma": 47.73239004339095
+    },
+    {
+      "seed": 36,
+      "status": "success",
+      "length": 21.49950304448068,
+      "max_gamma": 35.3289849889221
+    },
+    {
+      "seed": 37,
+      "status": "success",
+      "length": 21.599353298054194,
+      "max_gamma": 44.28025888666213
+    },
+    {
+      "seed": 38,
+      "status": "success",
+      "length": 21.898971884100536,
+      "max_gamma": 51.33983970248627
+    },
+    {
+      "seed": 39,
+      "status": "success",
+      "length": 22.998534699701015,
+      "max_gamma": 53.49955833682938
+    },
+    {
+      "seed": 40,
+      "status": "success",
+      "length": 22.698945075963458,
+      "max_gamma": 50.50978619364874
+    },
+    {
+      "seed": 41,
+      "status": "success",
+      "length": 22.399241096264692,
+      "max_gamma": 41.580030430769085
+    },
+    {
+      "seed": 42,
+      "status": "success",
+      "length": 21.399343727714378,
+      "max_gamma": 43.595174755750136
+    },
+    {
+      "seed": 43,
+      "status": "success",
+      "length": 22.399069531294803,
+      "max_gamma": 45.60331715924274
+    },
+    {
+      "seed": 44,
+      "status": "success",
+      "length": 22.897480342402496,
+      "max_gamma": 61.88920459820114
+    },
+    {
+      "seed": 45,
+      "status": "success",
+      "length": 22.798737765872183,
+      "max_gamma": 42.5004377384449
+    },
+    {
+      "seed": 46,
+      "status": "success",
+      "length": 20.299964696192824,
+      "max_gamma": 8.234061988307596
+    },
+    {
+      "seed": 47,
+      "status": "success",
+      "length": 23.298669068793256,
+      "max_gamma": 47.67654507501337
+    },
+    {
+      "seed": 48,
+      "status": "success",
+      "length": 23.29798371606174,
+      "max_gamma": 50.62507927410693
+    },
+    {
+      "seed": 49,
+      "status": "success",
+      "length": 22.29804702638044,
+      "max_gamma": 58.56865155976995
+    },
+    {
+      "seed": 50,
+      "status": "success",
+      "length": 22.598525934682076,
+      "max_gamma": 48.990232198363394
+    },
+    {
+      "seed": 51,
+      "status": "success",
+      "length": 20.39993079564583,
+      "max_gamma": 8.084982663868258
+    },
+    {
+      "seed": 52,
+      "status": "success",
+      "length": 20.899661890519134,
+      "max_gamma": 23.26769653156463
+    },
+    {
+      "seed": 53,
+      "status": "success",
+      "length": 20.299996418705394,
+      "max_gamma": 2.4706771277279507
+    },
+    {
+      "seed": 54,
+      "status": "success",
+      "length": 20.29999776490382,
+      "max_gamma": 1.9721629217331473
+    },
+    {
+      "seed": 55,
+      "status": "success",
+      "length": 21.09957468851352,
+      "max_gamma": 31.085916288023483
+    },
+    {
+      "seed": 56,
+      "status": "success",
+      "length": 20.69985536431358,
+      "max_gamma": 13.740910072112152
+    },
+    {
+      "seed": 57,
+      "status": "success",
+      "length": 21.0996423616342,
+      "max_gamma": 29.252509429756685
+    },
+    {
+      "seed": 58,
+      "status": "success",
+      "length": 21.79909719294585,
+      "max_gamma": 41.9819628805383
+    },
+    {
+      "seed": 59,
+      "status": "success",
+      "length": 24.496377000027987,
+      "max_gamma": 65.179901468525
+    },
+    {
+      "seed": 60,
+      "status": "success",
+      "length": 21.299477939129474,
+      "max_gamma": 30.18309947423482
+    },
+    {
+      "seed": 61,
+      "status": "success",
+      "length": 21.899137852571965,
+      "max_gamma": 40.39996706265227
+    },
+    {
+      "seed": 62,
+      "status": "success",
+      "length": 20.299995410223566,
+      "max_gamma": 3.307860096171942
+    },
+    {
+      "seed": 63,
+      "status": "success",
+      "length": 22.79854643067932,
+      "max_gamma": 52.68740911631491
+    },
+    {
+      "seed": 64,
+      "status": "success",
+      "length": 20.899759713054294,
+      "max_gamma": 19.92887192723858
+    },
+    {
+      "seed": 65,
+      "status": "success",
+      "length": 22.398967928336123,
+      "max_gamma": 46.31813523464112
+    },
+    {
+      "seed": 66,
+      "status": "success",
+      "length": 23.898100455975456,
+      "max_gamma": 49.83210374417064
+    },
+    {
+      "seed": 67,
+      "status": "success",
+      "length": 21.39892508584422,
+      "max_gamma": 52.26982312817014
+    },
+    {
+      "seed": 68,
+      "status": "success",
+      "length": 20.6998581402396,
+      "max_gamma": 17.592483856632835
+    },
+    {
+      "seed": 69,
+      "status": "success",
+      "length": 22.697571277871845,
+      "max_gamma": 62.105963444267175
+    },
+    {
+      "seed": 70,
+      "status": "success",
+      "length": 21.999237868775545,
+      "max_gamma": 37.2742093045259
+    },
+    {
+      "seed": 71,
+      "status": "success",
+      "length": 22.69893580976121,
+      "max_gamma": 40.10227883185321
+    },
+    {
+      "seed": 72,
+      "status": "success",
+      "length": 20.299983980670422,
+      "max_gamma": 5.478758620240467
+    },
+    {
+      "seed": 73,
+      "status": "success",
+      "length": 21.598461475570097,
+      "max_gamma": 51.67373321092825
+    },
+    {
+      "seed": 74,
+      "status": "success",
+      "length": 20.99973178443465,
+      "max_gamma": 22.482135019684474
+    },
+    {
+      "seed": 75,
+      "status": "success",
+      "length": 20.899780691803368,
+      "max_gamma": 19.422424886418128
+    },
+    {
+      "seed": 76,
+      "status": "success",
+      "length": 20.699782520204778,
+      "max_gamma": 23.489528394784777
+    },
+    {
+      "seed": 77,
+      "status": "success",
+      "length": 22.99840027495103,
+      "max_gamma": 55.474679923105526
+    },
+    {
+      "seed": 78,
+      "status": "jackknife",
+      "length": 13.197775796039567,
+      "max_gamma": 70.15929823229335
+    },
+    {
+      "seed": 79,
+      "status": "success",
+      "length": 21.199505184326558,
+      "max_gamma": 36.463839988606686
+    },
+    {
+      "seed": 80,
+      "status": "success",
+      "length": 20.89955697726688,
+      "max_gamma": 29.36332029934526
+    },
+    {
+      "seed": 81,
+      "status": "success",
+      "length": 20.29998476731703,
+      "max_gamma": 4.841883224047732
+    },
+    {
+      "seed": 82,
+      "status": "success",
+      "length": 21.49940802676081,
+      "max_gamma": 41.9974443072051
+    },
+    {
+      "seed": 83,
+      "status": "success",
+      "length": 20.29999973669266,
+      "max_gamma": 0.6856185551844287
+    },
+    {
+      "seed": 84,
+      "status": "success",
+      "length": 21.199433794856482,
+      "max_gamma": 33.29237807843085
+    },
+    {
+      "seed": 85,
+      "status": "success",
+      "length": 22.398634501193374,
+      "max_gamma": 55.50474514756913
+    },
+    {
+      "seed": 86,
+      "status": "success",
+      "length": 20.69964505726697,
+      "max_gamma": 20.901915241831247
+    },
+    {
+      "seed": 87,
+      "status": "success",
+      "length": 20.69847869834678,
+      "max_gamma": 44.00945607857379
+    },
+    {
+      "seed": 88,
+      "status": "success",
+      "length": 20.29998803103294,
+      "max_gamma": 4.333270786139217
+    },
+    {
+      "seed": 89,
+      "status": "success",
+      "length": 20.299927237246354,
+      "max_gamma": 12.390195273603604
+    },
+    {
+      "seed": 90,
+      "status": "success",
+      "length": 20.39993515515076,
+      "max_gamma": 9.802824155723389
+    },
+    {
+      "seed": 91,
+      "status": "success",
+      "length": 21.599253851104425,
+      "max_gamma": 45.943695605566084
+    },
+    {
+      "seed": 92,
+      "status": "success",
+      "length": 21.59937731420909,
+      "max_gamma": 35.25221823818234
+    },
+    {
+      "seed": 93,
+      "status": "success",
+      "length": 23.298629680590686,
+      "max_gamma": 49.022144879923765
+    },
+    {
+      "seed": 94,
+      "status": "success",
+      "length": 20.399945680232268,
+      "max_gamma": 10.662598508383262
+    },
+    {
+      "seed": 95,
+      "status": "success",
+      "length": 21.598096868368522,
+      "max_gamma": 59.078246343182386
+    },
+    {
+      "seed": 96,
+      "status": "success",
+      "length": 21.89833564066256,
+      "max_gamma": 44.5302097920651
+    },
+    {
+      "seed": 97,
+      "status": "success",
+      "length": 20.69922037809926,
+      "max_gamma": 33.245208688104995
+    },
+    {
+      "seed": 98,
+      "status": "success",
+      "length": 22.199107803081496,
+      "max_gamma": 49.243009957181116
+    },
+    {
+      "seed": 99,
+      "status": "success",
+      "length": 21.199630240036797,
+      "max_gamma": 28.897355411205144
+    }
+  ],
+  "SCPF (Proposed)": [
+    {
+      "seed": 0,
+      "status": "success",
+      "length": 23.098203876399978,
+      "max_gamma": 41.54503536664261
+    },
+    {
+      "seed": 1,
+      "status": "success",
+      "length": 21.399507699999283,
+      "max_gamma": 36.13971518954249
+    },
+    {
+      "seed": 2,
+      "status": "success",
+      "length": 25.69876695325495,
+      "max_gamma": 36.746405505972575
+    },
+    {
+      "seed": 3,
+      "status": "success",
+      "length": 26.099193477481187,
+      "max_gamma": 35.67021784760356
+    },
+    {
+      "seed": 4,
+      "status": "gnron_trap",
+      "length": 34.98750911646452,
+      "max_gamma": 108.16485600507083
+    },
+    {
+      "seed": 5,
+      "status": "success",
+      "length": 20.29996351705151,
+      "max_gamma": 8.133895840145845
+    },
+    {
+      "seed": 6,
+      "status": "success",
+      "length": 21.699389840939496,
+      "max_gamma": 35.10007787333495
+    },
+    {
+      "seed": 7,
+      "status": "success",
+      "length": 21.899548064854187,
+      "max_gamma": 22.046595684450075
+    },
+    {
+      "seed": 8,
+      "status": "success",
+      "length": 23.99893738556851,
+      "max_gamma": 33.83245607434582
+    },
+    {
+      "seed": 9,
+      "status": "success",
+      "length": 20.999712709388458,
+      "max_gamma": 25.736091910277615
+    },
+    {
+      "seed": 10,
+      "status": "success",
+      "length": 22.098991771788086,
+      "max_gamma": 36.10855817810935
+    },
+    {
+      "seed": 11,
+      "status": "success",
+      "length": 22.59944824101533,
+      "max_gamma": 37.08869177351657
+    },
+    {
+      "seed": 12,
+      "status": "success",
+      "length": 22.89926634549264,
+      "max_gamma": 33.4707894739775
+    },
+    {
+      "seed": 13,
+      "status": "success",
+      "length": 22.09956891748754,
+      "max_gamma": 31.514952394550466
+    },
+    {
+      "seed": 14,
+      "status": "success",
+      "length": 20.49990669135305,
+      "max_gamma": 13.17897466251876
+    },
+    {
+      "seed": 15,
+      "status": "success",
+      "length": 23.99849673570586,
+      "max_gamma": 42.019376144003616
+    },
+    {
+      "seed": 16,
+      "status": "success",
+      "length": 22.099493681577158,
+      "max_gamma": 27.68297792350611
+    },
+    {
+      "seed": 17,
+      "status": "success",
+      "length": 21.0984387132149,
+      "max_gamma": 35.62014779882177
+    },
+    {
+      "seed": 18,
+      "status": "success",
+      "length": 20.599836774730214,
+      "max_gamma": 17.834934028755907
+    },
+    {
+      "seed": 19,
+      "status": "success",
+      "length": 33.898087421929326,
+      "max_gamma": 37.05786807331031
+    },
+    {
+      "seed": 20,
+      "status": "success",
+      "length": 21.499374325481053,
+      "max_gamma": 31.808227872477005
+    },
+    {
+      "seed": 21,
+      "status": "success",
+      "length": 22.49884073406515,
+      "max_gamma": 34.12834303940005
+    },
+    {
+      "seed": 22,
+      "status": "success",
+      "length": 22.399485691323278,
+      "max_gamma": 25.8448179596015
+    },
+    {
+      "seed": 23,
+      "status": "success",
+      "length": 22.799480692402312,
+      "max_gamma": 28.824491339705514
+    },
+    {
+      "seed": 24,
+      "status": "success",
+      "length": 22.699455535541965,
+      "max_gamma": 29.60697915928343
+    },
+    {
+      "seed": 25,
+      "status": "success",
+      "length": 20.69978434975235,
+      "max_gamma": 21.920086469952444
+    },
+    {
+      "seed": 26,
+      "status": "gnron_trap",
+      "length": 34.98773908530304,
+      "max_gamma": 103.43586225801631
+    },
+    {
+      "seed": 27,
+      "status": "success",
+      "length": 21.299367715329847,
+      "max_gamma": 28.507630523676344
+    },
+    {
+      "seed": 28,
+      "status": "success",
+      "length": 20.29998115911418,
+      "max_gamma": 5.82824694072083
+    },
+    {
+      "seed": 29,
+      "status": "success",
+      "length": 20.599735916469733,
+      "max_gamma": 23.69010919390463
+    },
+    {
+      "seed": 30,
+      "status": "success",
+      "length": 21.99957477623808,
+      "max_gamma": 32.578174705334376
+    },
+    {
+      "seed": 31,
+      "status": "success",
+      "length": 20.89985283954557,
+      "max_gamma": 17.901563524274902
+    },
+    {
+      "seed": 32,
+      "status": "success",
+      "length": 20.799671733254677,
+      "max_gamma": 18.32592773943869
+    },
+    {
+      "seed": 33,
+      "status": "success",
+      "length": 21.99964603932737,
+      "max_gamma": 27.841560423684168
+    },
+    {
+      "seed": 34,
+      "status": "success",
+      "length": 20.29998820512943,
+      "max_gamma": 4.613501217984322
+    },
+    {
+      "seed": 35,
+      "status": "gnron_trap",
+      "length": 34.995915929805335,
+      "max_gamma": 62.052055209774394
+    },
+    {
+      "seed": 36,
+      "status": "success",
+      "length": 22.29957542125658,
+      "max_gamma": 29.367450819619933
+    },
+    {
+      "seed": 37,
+      "status": "success",
+      "length": 22.099536159993377,
+      "max_gamma": 34.72008937568982
+    },
+    {
+      "seed": 38,
+      "status": "success",
+      "length": 22.498863486241962,
+      "max_gamma": 37.150306696293256
+    },
+    {
+      "seed": 39,
+      "status": "success",
+      "length": 24.29883281857671,
+      "max_gamma": 37.17474981104078
+    },
+    {
+      "seed": 40,
+      "status": "gnron_trap",
+      "length": 34.98842976327996,
+      "max_gamma": 107.28539075149244
+    },
+    {
+      "seed": 41,
+      "status": "topol_infeas",
+      "length": 22.899312748157886,
+      "max_gamma": 30.29312736533207
+    },
+    {
+      "seed": 42,
+      "status": "success",
+      "length": 21.999271300055845,
+      "max_gamma": 36.5465868156377
+    },
+    {
+      "seed": 43,
+      "status": "success",
+      "length": 22.79933930286963,
+      "max_gamma": 35.401273016179566
+    },
+    {
+      "seed": 44,
+      "status": "success",
+      "length": 24.299183409837095,
+      "max_gamma": 32.59011374328181
+    },
+    {
+      "seed": 45,
+      "status": "success",
+      "length": 24.59874131899029,
+      "max_gamma": 37.057600188410014
+    },
+    {
+      "seed": 46,
+      "status": "success",
+      "length": 20.49992470390985,
+      "max_gamma": 12.30317207893635
+    },
+    {
+      "seed": 47,
+      "status": "success",
+      "length": 24.498903328246186,
+      "max_gamma": 36.40380085755427
+    },
+    {
+      "seed": 48,
+      "status": "success",
+      "length": 26.39745851497455,
+      "max_gamma": 42.780400724026855
+    },
+    {
+      "seed": 49,
+      "status": "success",
+      "length": 24.099517185288075,
+      "max_gamma": 25.242093875660455
+    },
+    {
+      "seed": 50,
+      "status": "success",
+      "length": 29.898343402826924,
+      "max_gamma": 37.561905612168516
+    },
+    {
+      "seed": 51,
+      "status": "success",
+      "length": 20.499856614412344,
+      "max_gamma": 12.656537581671694
+    },
+    {
+      "seed": 52,
+      "status": "success",
+      "length": 21.29961208795415,
+      "max_gamma": 22.610569662828183
+    },
+    {
+      "seed": 53,
+      "status": "success",
+      "length": 20.29998355432152,
+      "max_gamma": 5.723628001540172
+    },
+    {
+      "seed": 54,
+      "status": "success",
+      "length": 20.299987976779317,
+      "max_gamma": 4.978396132738327
+    },
+    {
+      "seed": 55,
+      "status": "success",
+      "length": 21.699478680791305,
+      "max_gamma": 27.94835391680394
+    },
+    {
+      "seed": 56,
+      "status": "success",
+      "length": 21.39968560991934,
+      "max_gamma": 24.888009255578503
+    },
+    {
+      "seed": 57,
+      "status": "success",
+      "length": 21.799660371682197,
+      "max_gamma": 26.17922295417404
+    },
+    {
+      "seed": 58,
+      "status": "success",
+      "length": 23.198843015104558,
+      "max_gamma": 35.73656846359807
+    },
+    {
+      "seed": 59,
+      "status": "gnron_trap",
+      "length": 34.99761997643517,
+      "max_gamma": 37.212027110558296
+    },
+    {
+      "seed": 60,
+      "status": "success",
+      "length": 22.199188983612796,
+      "max_gamma": 36.183574420176996
+    },
+    {
+      "seed": 61,
+      "status": "success",
+      "length": 22.699118859485015,
+      "max_gamma": 29.670197436152545
+    },
+    {
+      "seed": 62,
+      "status": "success",
+      "length": 20.29997553106353,
+      "max_gamma": 7.245305137023427
+    },
+    {
+      "seed": 63,
+      "status": "success",
+      "length": 24.098619591743844,
+      "max_gamma": 36.998769861316504
+    },
+    {
+      "seed": 64,
+      "status": "success",
+      "length": 21.299751872592253,
+      "max_gamma": 20.25954071391995
+    },
+    {
+      "seed": 65,
+      "status": "success",
+      "length": 23.399027495396364,
+      "max_gamma": 37.43504580517623
+    },
+    {
+      "seed": 66,
+      "status": "success",
+      "length": 26.997184661093588,
+      "max_gamma": 35.84767769199897
+    },
+    {
+      "seed": 67,
+      "status": "success",
+      "length": 25.499170591192662,
+      "max_gamma": 29.190524058325547
+    },
+    {
+      "seed": 68,
+      "status": "success",
+      "length": 20.999826077183144,
+      "max_gamma": 18.61556629774601
+    },
+    {
+      "seed": 69,
+      "status": "success",
+      "length": 27.398983220227397,
+      "max_gamma": 36.69951955904723
+    },
+    {
+      "seed": 70,
+      "status": "success",
+      "length": 22.99931693118194,
+      "max_gamma": 29.72851947060668
+    },
+    {
+      "seed": 71,
+      "status": "success",
+      "length": 23.499089275087822,
+      "max_gamma": 32.24761585208
+    },
+    {
+      "seed": 72,
+      "status": "success",
+      "length": 20.3999546885744,
+      "max_gamma": 9.646062273028088
+    },
+    {
+      "seed": 73,
+      "status": "success",
+      "length": 28.899116965857576,
+      "max_gamma": 34.2171579729479
+    },
+    {
+      "seed": 74,
+      "status": "success",
+      "length": 21.399722209441393,
+      "max_gamma": 22.019462739119703
+    },
+    {
+      "seed": 75,
+      "status": "success",
+      "length": 21.599671968738637,
+      "max_gamma": 22.600756777291643
+    },
+    {
+      "seed": 76,
+      "status": "success",
+      "length": 20.89975023765949,
+      "max_gamma": 22.53286017389261
+    },
+    {
+      "seed": 77,
+      "status": "success",
+      "length": 23.399214221308327,
+      "max_gamma": 33.57037504223383
+    },
+    {
+      "seed": 78,
+      "status": "topol_infeas",
+      "length": 34.99082697397245,
+      "max_gamma": 101.95077713451681
+    },
+    {
+      "seed": 79,
+      "status": "success",
+      "length": 21.49948521055203,
+      "max_gamma": 29.845333612104383
+    },
+    {
+      "seed": 80,
+      "status": "success",
+      "length": 20.99945113331388,
+      "max_gamma": 29.735449211188197
+    },
+    {
+      "seed": 81,
+      "status": "success",
+      "length": 20.4999394736195,
+      "max_gamma": 8.001804250365549
+    },
+    {
+      "seed": 82,
+      "status": "success",
+      "length": 22.199512746593747,
+      "max_gamma": 32.63760489243117
+    },
+    {
+      "seed": 83,
+      "status": "success",
+      "length": 20.299998205205725,
+      "max_gamma": 2.0146765149100156
+    },
+    {
+      "seed": 84,
+      "status": "success",
+      "length": 21.999249357186148,
+      "max_gamma": 36.88769540746174
+    },
+    {
+      "seed": 85,
+      "status": "success",
+      "length": 23.499371134427555,
+      "max_gamma": 30.957995587678003
+    },
+    {
+      "seed": 86,
+      "status": "success",
+      "length": 20.899529005701126,
+      "max_gamma": 21.675260928864414
+    },
+    {
+      "seed": 87,
+      "status": "success",
+      "length": 23.49653784656654,
+      "max_gamma": 53.43248097481825
+    },
+    {
+      "seed": 88,
+      "status": "success",
+      "length": 20.399952179832006,
+      "max_gamma": 8.225663540388274
+    },
+    {
+      "seed": 89,
+      "status": "success",
+      "length": 20.29982096739306,
+      "max_gamma": 15.767228012987315
+    },
+    {
+      "seed": 90,
+      "status": "success",
+      "length": 20.699871207948174,
+      "max_gamma": 10.78943582042466
+    },
+    {
+      "seed": 91,
+      "status": "success",
+      "length": 21.799413660795803,
+      "max_gamma": 35.55905344144071
+    },
+    {
+      "seed": 92,
+      "status": "success",
+      "length": 22.199406888917075,
+      "max_gamma": 27.906612016913307
+    },
+    {
+      "seed": 93,
+      "status": "success",
+      "length": 24.49889229256355,
+      "max_gamma": 37.08248513624007
+    },
+    {
+      "seed": 94,
+      "status": "success",
+      "length": 20.59989953617104,
+      "max_gamma": 13.956832414892457
+    },
+    {
+      "seed": 95,
+      "status": "gnron_trap",
+      "length": 34.99122012312673,
+      "max_gamma": 97.33357897906005
+    },
+    {
+      "seed": 96,
+      "status": "success",
+      "length": 23.097692949061294,
+      "max_gamma": 40.087346686203134
+    },
+    {
+      "seed": 97,
+      "status": "success",
+      "length": 20.69967553514179,
+      "max_gamma": 20.042034203049642
+    },
+    {
+      "seed": 98,
+      "status": "success",
+      "length": 22.699286655419975,
+      "max_gamma": 36.505476723652265
+    },
+    {
+      "seed": 99,
+      "status": "success",
+      "length": 22.299495364240737,
+      "max_gamma": 32.42729793381395
+    }
+  ]
+}
