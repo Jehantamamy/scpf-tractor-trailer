@@ -59,10 +59,8 @@ scpf-simulation/
 │   ├── run_ablation.py           # Table 4: Quantitative modular ablation benchmarks
 │   ├── run_sensitivity.py        # Table 5: Hyperparameter sensitivity sweeps
 │   └── __init__.py
-├── generate_experimental_figures.py  # Self-contained generator for experimental graphs (Figs. 6-15)
-├── generate_schematic_figures.py     # Self-contained generator for theoretical schematics (Figs. 1-5)
-├── generate_all_figures.py           # Master script compiling all 15 publication figures
-├── run_benchmarks.py                 # One-command runner for all numerical benchmarks and figures
+├── generate_experimental_figures.py  # Self-contained generator for experimental figures (Figs. 6-15)
+├── run_benchmarks.py                 # Runner for numerical benchmarks and experimental figures
 ├── requirements.txt                  # Python dependencies
 ├── LICENSE                           # MIT License
 └── README.md                         # Technical documentation
@@ -96,10 +94,10 @@ scpf-simulation/
 
 ## Quickstart and Full Reproducibility
 
-To execute the entire experimental benchmark suite and regenerate all 15 publication-grade figures in a single command:
+To execute the entire experimental benchmark suite and regenerate all publication-grade experimental figures:
 
 ```bash
-python run_benchmarks.py
+python generate_experimental_figures.py
 ```
 
 ### Reproducing Individual Manuscript Results:

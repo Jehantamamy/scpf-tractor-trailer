@@ -14,7 +14,7 @@ BENCHMARKS = [
     ("Table 3: Monte Carlo 100-Trial Statistical Evaluation", "experiments/run_monte_carlo.py"),
     ("Table 4: Quantitative Ablation Benchmark", "experiments/run_ablation.py"),
     ("Table 5: Parameter Sensitivity Benchmark", "experiments/run_sensitivity.py"),
-    ("Figures 1-15: Master Publication Figure Generation", "generate_all_figures.py"),
+    ("Figures 6-15: Experimental Publication Figure Generation", "generate_experimental_figures.py"),
 ]
 
 
