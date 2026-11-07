@@ -12,8 +12,8 @@ def feas(seed):
     sc = monte_carlo_scene(seed)
     p = Params()
     return {"seed": seed, "n_obstacles": sc["n_obstacles"],
-            "feasible_body": feasible(sc["obstacles"], sc["start"], sc["goal"], p.body_width / 2),
-            "feasible_swept": feasible(sc["obstacles"], sc["start"], sc["goal"], p.W_swept / 2)}
+            "feasible_body": feasible(sc["obstacles"], sc["start"], sc["goal"], p.body_width / 2, res=0.4, extent=(0, 50)),
+            "feasible_swept": feasible(sc["obstacles"], sc["start"], sc["goal"], p.W_swept / 2, res=0.4, extent=(0, 50))}
 
 
 if __name__ == "__main__":

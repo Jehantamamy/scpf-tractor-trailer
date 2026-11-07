@@ -4,7 +4,7 @@ SCPF,cshape_trap,Full SCPF,canonical,success,267,26.7,26.6989,48.2251,1.25737,0,
 SCPF,cshape_entrance,Full SCPF,canonical,success,145,14.5,14.4988,51.1726,1.35473,0,0,0.992217,0,,,,,,,,,
 SCPF,cshape_escape,Full SCPF,canonical,success,384,38.4,38.3953,65.5303,0.576277,0,34,0.999909,0,,,,,,,,,
 SCPF,zigzag,Full SCPF,canonical,success,348,34.8,34.7981,56.2737,0.51891,0,0,0.993768,0,,,,,,,,,
-SCPF,clutter,Full SCPF,canonical,success,261,26.1,26.0979,62.5539,0.505732,0,5,0.998334,0,,,,,,,,,
+SCPF,clutter,Full SCPF,canonical,success,156,15.6,15.5992,34.1587,0.615643,1.9924,0,0.999867,0,,,,,,,,,
 SCPF,cshape_escape,Full SCPF,escape_set,success,354,35.4,35.3969,64.8795,0.699936,0,18,0.999637,0,"[9.0, 6.0]",,,,,,,,
 SCPF,cshape_escape,Full SCPF,escape_set,success,329,32.9,32.8977,63.6232,0.699923,0,6,0.999008,0,"[9.0, 6.0]",,,,,,,,
 SCPF,cshape_escape,Full SCPF,escape_set,collision,10,1,0.999981,4.72076,0,0,0,0.985352,0,"[9.0, 6.0]",,,,,,,,
@@ -146,7 +146,7 @@ SCPF,cshape_trap,w/o governor (NCT),canonical,success,267,26.7,26.6989,48.2251,1
 SCPF,cshape_entrance,w/o governor (NCT),canonical,success,145,14.5,14.4988,51.1726,1.35473,0,0,0.992217,0,,,False,,,,,,
 SCPF,cshape_escape,w/o governor (NCT),canonical,jackknife,22,2.2,2.19899,70.1883,1.723,0,0,0.992188,0,,,False,,,,,,
 SCPF,zigzag,w/o governor (NCT),canonical,success,348,34.8,34.7981,56.2737,0.51891,0,0,0.993768,0,,,False,,,,,,
-SCPF,clutter,w/o governor (NCT),canonical,success,261,26.1,26.0979,62.5539,0.505732,0,0,0.998336,0,,,False,,,,,,
+SCPF,clutter,w/o governor (NCT),canonical,success,156,15.6,15.5992,34.1587,0.615643,1.9924,0,0.999867,0,,,False,,,,,,
 SCPF,cshape_escape,w/o governor (NCT),escape_set,jackknife,24,2.4,2.39896,71.7082,0.699936,0,0,0.992188,0,"[9.0, 6.0]",,False,,,,,,
 SCPF,cshape_escape,w/o governor (NCT),escape_set,success,334,33.4,33.3972,68.5051,0.699923,0,0,0.99994,0,"[9.0, 6.0]",,False,,,,,,
 SCPF,cshape_escape,w/o governor (NCT),escape_set,collision,10,1,0.999981,4.72076,0,0,0,0.985352,0,"[9.0, 6.0]",,False,,,,,,
@@ -288,7 +288,7 @@ SCPF,cshape_trap,w/o hull/subgoals,canonical,collision,136,13.6,13.5979,47.3974,
 SCPF,cshape_entrance,w/o hull/subgoals,canonical,timeout,1500,150,149.993,43.2174,0.819304,0,0,0.999705,0,,,,False,,,,,
 SCPF,cshape_escape,w/o hull/subgoals,canonical,collision,46,4.6,4.59901,46.3987,0,0,0,0.995906,0,,,,False,,,,,
 SCPF,zigzag,w/o hull/subgoals,canonical,success,355,35.5,35.4981,54.6263,0.622635,0,0,0.992725,0,,,,False,,,,,
-SCPF,clutter,w/o hull/subgoals,canonical,collision,91,9.1,9.09821,51.0751,0,0,0,0.999969,0,,,,False,,,,,
+SCPF,clutter,w/o hull/subgoals,canonical,collision,76,7.6,7.5996,35.0,0.0,1.9277,0,0.99918,0,,,,False,,,,,
 SCPF,cshape_escape,w/o hull/subgoals,escape_set,collision,73,7.3,7.29903,42.0118,0,0,0,0.996171,0,"[9.0, 6.0]",,,False,,,,,
 SCPF,cshape_escape,w/o hull/subgoals,escape_set,collision,66,6.6,6.59826,61.6794,0,0,3,0.999969,0,"[9.0, 6.0]",,,False,,,,,
 SCPF,cshape_escape,w/o hull/subgoals,escape_set,collision,93,9.3,9.29778,65.5436,0,0,14,0.99542,0,"[9.0, 6.0]",,,False,,,,,
@@ -430,7 +430,7 @@ SCPF,cshape_trap,w/o gap screening,canonical,success,267,26.7,26.6989,48.2251,1.
 SCPF,cshape_entrance,w/o gap screening,canonical,success,145,14.5,14.4988,51.1726,1.35473,0,0,0.992217,0,,,,,False,,,,
 SCPF,cshape_escape,w/o gap screening,canonical,success,384,38.4,38.3953,65.5303,0.576277,0,34,0.999909,0,,,,,False,,,,
 SCPF,zigzag,w/o gap screening,canonical,success,348,34.8,34.7981,56.2737,0.51891,0,0,0.993768,0,,,,,False,,,,
-SCPF,clutter,w/o gap screening,canonical,collision,91,9.1,9.09821,51.0751,0,0,0,0.999969,0,,,,,False,,,,
+SCPF,clutter,w/o gap screening,canonical,collision,71,7.1,7.0999,12.5781,0.0,1.8136,0,0.996173,0,,,,,False,,,,
 SCPF,cshape_escape,w/o gap screening,escape_set,success,354,35.4,35.3969,64.8795,0.699936,0,18,0.999637,0,"[9.0, 6.0]",,,,False,,,,
 SCPF,cshape_escape,w/o gap screening,escape_set,success,329,32.9,32.8977,63.6232,0.699923,0,6,0.999008,0,"[9.0, 6.0]",,,,False,,,,
 SCPF,cshape_escape,w/o gap screening,escape_set,collision,10,1,0.999981,4.72076,0,0,0,0.985352,0,"[9.0, 6.0]",,,,False,,,,
@@ -572,7 +572,7 @@ SCPF,cshape_trap,w/o projection,canonical,success,263,26.3,26.299,46.1437,0.9885
 SCPF,cshape_entrance,w/o projection,canonical,success,145,14.5,14.499,42.4657,1.00091,0,0,0.992223,0,,,,,,False,,,
 SCPF,cshape_escape,w/o projection,canonical,success,384,38.4,38.3951,65.5303,0.443894,0,35,0.999923,0,,,,,,False,,,
 SCPF,zigzag,w/o projection,canonical,success,343,34.3,34.2982,56.549,0.435061,0,0,0.998032,0,,,,,,False,,,
-SCPF,clutter,w/o projection,canonical,success,251,25.1,25.0981,61.5081,0.504713,0,4,0.996876,0,,,,,,False,,,
+SCPF,clutter,w/o projection,canonical,success,152,15.2,15.1995,28.6514,0.627319,1.2585,0,0.988802,0,,,,,,False,,,
 SCPF,cshape_escape,w/o projection,escape_set,success,352,35.2,35.1968,64.8795,0.699936,0,13,0.999848,0,"[9.0, 6.0]",,,,,False,,,
 SCPF,cshape_escape,w/o projection,escape_set,success,321,32.1,32.0979,62.2124,0.699923,0,5,0.999598,0,"[9.0, 6.0]",,,,,False,,,
 SCPF,cshape_escape,w/o projection,escape_set,collision,10,1,0.999981,4.72076,0,0,0,0.985352,0,"[9.0, 6.0]",,,,,False,,,
@@ -714,7 +714,7 @@ SCPF,cshape_trap,w/o hysteresis,canonical,collision,58,5.8,5.79907,54.1075,0,0,0
 SCPF,cshape_entrance,w/o hysteresis,canonical,success,145,14.5,14.4988,54.1003,1.3117,0,0,0.999055,0,,,,,,,False,,
 SCPF,cshape_escape,w/o hysteresis,canonical,timeout,1500,150,149.966,65.5303,0.525515,0,1284,0.999308,0,,,,,,,False,,
 SCPF,zigzag,w/o hysteresis,canonical,collision,145,14.5,14.499,40.1248,0,0,0,0.992452,0,,,,,,,False,,
-SCPF,clutter,w/o hysteresis,canonical,success,480,48,47.9926,65.925,0.519859,0,129,0.999962,0,,,,,,,False,,
+SCPF,clutter,w/o hysteresis,canonical,success,156,15.6,15.5992,34.1587,0.589692,2.0388,0,0.999967,0,,,,,,,False,,
 SCPF,cshape_escape,w/o hysteresis,escape_set,trapped,200,20,19.996,65.076,0.699936,0,61,0.99432,0,"[9.0, 6.0]",,,,,,False,,
 SCPF,cshape_escape,w/o hysteresis,escape_set,trapped,177,17.7,17.6967,64.5351,0.699923,0,49,0.993157,0,"[9.0, 6.0]",,,,,,False,,
 SCPF,cshape_escape,w/o hysteresis,escape_set,collision,48,4.8,4.79815,65.5436,0,0,7,0.999939,0,"[9.0, 6.0]",,,,,,False,,
@@ -856,7 +856,7 @@ SCPF,cshape_trap,w/o trailer zone,canonical,success,266,26.6,26.5989,48.2251,1.2
 SCPF,cshape_entrance,w/o trailer zone,canonical,success,145,14.5,14.4988,51.5868,1.36243,0,0,0.992217,0,,,,,,,,False,
 SCPF,cshape_escape,w/o trailer zone,canonical,success,371,37.1,37.0959,66.1808,0.59509,0,29,0.999639,0,,,,,,,,False,
 SCPF,zigzag,w/o trailer zone,canonical,success,344,34.4,34.398,55.8346,0.51425,0,0,0.995508,0,,,,,,,,False,
-SCPF,clutter,w/o trailer zone,canonical,success,259,25.9,25.8981,58.0221,0.498153,0,0,0.992188,0,,,,,,,,False,
+SCPF,clutter,w/o trailer zone,canonical,success,158,15.8,15.7992,33.4578,0.50684,2.0205,0,0.999923,0,,,,,,,,False,
 SCPF,cshape_escape,w/o trailer zone,escape_set,success,344,34.4,34.3971,65.5436,0.699936,0,19,0.99838,0,"[9.0, 6.0]",,,,,,,False,
 SCPF,cshape_escape,w/o trailer zone,escape_set,success,322,32.2,32.1977,66.5227,0.699923,0,7,0.999939,0,"[9.0, 6.0]",,,,,,,False,
 SCPF,cshape_escape,w/o trailer zone,escape_set,collision,10,1,0.999981,4.72076,0,0,0,0.985352,0,"[9.0, 6.0]",,,,,,,False,
@@ -998,7 +998,7 @@ SCPF,cshape_trap,w/o goal attenuation,canonical,success,267,26.7,26.6989,48.2251
 SCPF,cshape_entrance,w/o goal attenuation,canonical,success,145,14.5,14.4988,51.1726,1.35473,0,0,0.992217,0,,,,,,,,,False
 SCPF,cshape_escape,w/o goal attenuation,canonical,success,384,38.4,38.3953,65.5303,0.576277,0,34,0.999909,0,,,,,,,,,False
 SCPF,zigzag,w/o goal attenuation,canonical,success,348,34.8,34.7981,56.2737,0.51891,0,0,0.993768,0,,,,,,,,,False
-SCPF,clutter,w/o goal attenuation,canonical,success,265,26.5,26.498,62.5539,0.505732,0,5,0.998334,0,,,,,,,,,False
+SCPF,clutter,w/o goal attenuation,canonical,trapped,347,34.7,34.6968,65.1621,0.615643,2.2072,18,0.999893,0,,,,,,,,,False
 SCPF,cshape_escape,w/o goal attenuation,escape_set,success,354,35.4,35.3969,64.8795,0.699936,0,18,0.999637,0,"[9.0, 6.0]",,,,,,,,False
 SCPF,cshape_escape,w/o goal attenuation,escape_set,success,329,32.9,32.8977,63.6232,0.699923,0,6,0.999008,0,"[9.0, 6.0]",,,,,,,,False
 SCPF,cshape_escape,w/o goal attenuation,escape_set,collision,10,1,0.999981,4.72076,0,0,0,0.985352,0,"[9.0, 6.0]",,,,,,,,False

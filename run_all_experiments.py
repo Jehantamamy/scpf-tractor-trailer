@@ -11,12 +11,13 @@ import time
 
 EXPERIMENTS = [
     ("Canonical Scenarios (Table 2)", "experiments/run_canonical.py"),
-    ("Monte Carlo Clutter 100-Trial Benchmark (Table 3)", "experiments/run_monte_carlo.py"),
-    ("Ablation Benchmark (Table 4)", "experiments/run_ablation.py"),
-    ("Articulation Governor Stress Analysis", "experiments/run_governor_stress.py"),
-    ("Dynamic Obstacle Scenarios", "experiments/run_dynamic.py"),
-    ("Timing & Computational Latency Benchmark", "experiments/run_timing.py"),
-    ("Generate All Publication Figures (Figs. 6-13)", "figures/make_figures.py"),
+    ("Component-Wise Ablation Analysis (Table 3)", "experiments/run_ablation.py"),
+    ("Parametric Sensitivity Sweeps (Fig. 10)", "experiments/run_sensitivity.py"),
+    ("Monte Carlo Clutter 100-Trial Benchmark (Fig. 11)", "experiments/run_monte_carlo.py"),
+    ("Articulation Governor Invariance & Stress Analysis (Fig. 5)", "experiments/run_governor_stress.py"),
+    ("Dynamic Unmapped Obstacle Evasion (Fig. 12)", "experiments/run_dynamic.py"),
+    ("Computational Latency Benchmark (Section 4.4)", "experiments/run_timing.py"),
+    ("Generate Experimental Publication Figures (Figs. 5-12)", "generate_experimental_figures.py"),
 ]
 
 

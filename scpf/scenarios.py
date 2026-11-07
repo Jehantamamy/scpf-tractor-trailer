@@ -12,9 +12,13 @@ ZIGZAG = [
     [[9.0, 5.0], [10.0, 5.0], [10.0, 25.0], [0.0, 25.0], [0.0, 14.0], [9.0, 14.0]],
 ]
 
-DENSE = [((2.5, 11.5), 1.1), ((6.0, 12.8), 1.1), ((10.0, 13.5), 1.0), ((5.8, 2.2), 1.1),
-         ((10.5, 2.5), 1.1), ((3.0, 6.2), 1.0), ((7.2, 5.5), 1.0), ((5.6, 9.2), 1.0),
-         ((9.4, 8.8), 1.0), ((11.8, 10.4), 0.85)]
+DENSE = [
+    ((2.2, 11.2), 0.60), ((4.6, 12.0), 0.60), ((2.5, 5.8), 0.60), ((3.7, 7.2), 0.60),
+    ((2.3, 8.8), 0.60), ((5.5, 9.5), 0.65), ((7.0, 8.9), 0.65), ((8.65, 7.85), 0.60),
+    ((7.2, 12.4), 0.60), ((9.5, 12.7), 0.60), ((11.5, 12.7), 0.55), ((13.3, 12.85), 0.55),
+    ((5.6, 2.2), 0.60), ((7.3, 4.0), 0.60), ((9.2, 3.4), 0.60), ((10.6, 3.6), 0.60),
+    ((11.9, 5.0), 0.60), ((13.0, 6.4), 0.55), ((13.6, 7.8), 0.55), ((13.8, 9.4), 0.55),
+]
 
 
 def _circle(c, r, vel=(0.0, 0.0)):
@@ -82,29 +86,70 @@ def escape_starts(min_clearance=0.3):
                 if min(tr.distance(wall), tl.distance(wall)) >= min_clearance:
                     out.append((x, y, th))
     return out
-MC_START = (3.0, 3.0)
-MC_GOAL = (47.0, 47.0)
+MC_GOAL = (25.0, 25.0)
 
 
 def monte_carlo_scene(seed):
-    """Random yard: 15-30 circular obstacles with radius U[0.8, 2.0] m, uniform
-    centres in [5, 45]^2, rejecting obstacles that overlap each other or lie
-    within 4 m of the start or goal."""
+    """Dense Clustered Yard (Section 4.3): Central goal at (25, 25) with 35-50 circular
+    obstacles arranged in 8-11 dense clusters with narrow winding corridors and concavities,
+    plus corridor obstacles, with randomized perimeter start (R in [18.5, 21.5] m) oriented
+    inward toward the central goal."""
     rng = np.random.default_rng(seed)
-    n = int(rng.integers(15, 31))
-    obs, tries = [], 0
-    while len(obs) < n and tries < 5000:
-        tries += 1
-        c = rng.uniform(5.0, 45.0, 2)
-        r = float(rng.uniform(0.8, 2.0))
-        if np.linalg.norm(c - MC_START) < r + 4.0 or np.linalg.norm(c - MC_GOAL) < r + 4.0:
-            continue
-        if any(np.linalg.norm(c - np.asarray(o["pos"])) < r + o["rad"] for o in obs):
-            continue
-        obs.append(_circle(c.tolist(), r))
-    th = math.atan2(MC_GOAL[1] - MC_START[1], MC_GOAL[0] - MC_START[0])
-    return dict(obstacles=obs, start=MC_START, goal=MC_GOAL, theta0=th,
+    goal = MC_GOAL
+    phi = float(rng.uniform(0, 2 * math.pi))
+    R = float(rng.uniform(18.5, 21.5))
+    sx = float(np.clip(goal[0] + R * math.cos(phi), 4.0, 46.0))
+    sy = float(np.clip(goal[1] + R * math.sin(phi), 4.0, 46.0))
+    start = (sx, sy)
+    th = math.atan2(goal[1] - sy, goal[0] - sx)
+
+    n_clusters = int(rng.integers(8, 11))
+    obs, cluster_centers = [], []
+    for _ in range(n_clusters):
+        for _ in range(500):
+            ang = float(rng.uniform(0, 2 * math.pi))
+            dist = float(rng.uniform(5.5, 17.0))
+            ccx = goal[0] + dist * math.cos(ang)
+            ccy = goal[1] + dist * math.sin(ang)
+            if all(np.hypot(ccx - ox, ccy - oy) >= 5.0 for ox, oy in cluster_centers):
+                cluster_centers.append((ccx, ccy))
+                break
+
+    for ccx, ccy in cluster_centers:
+        n_in_c = int(rng.integers(3, 6))
+        for _ in range(n_in_c):
+            for _ in range(200):
+                ox = ccx + float(rng.uniform(-2.2, 2.2))
+                oy = ccy + float(rng.uniform(-2.2, 2.2))
+                rad = float(rng.uniform(0.75, 1.25))
+                if np.hypot(ox - start[0], oy - start[1]) < rad + 3.2:
+                    continue
+                if np.hypot(ox - goal[0], oy - goal[1]) < rad + 2.5:
+                    continue
+                if any(np.hypot(ox - o["pos"][0], oy - o["pos"][1]) < rad + o["rad"] + 0.3 for o in obs):
+                    continue
+                obs.append({"type": "circle", "pos": [ox, oy], "rad": rad})
+                break
+
+    for _ in range(8):
+        for _ in range(200):
+            ang = float(rng.uniform(0, 2 * math.pi))
+            dist = float(rng.uniform(4.5, 18.5))
+            ox = goal[0] + dist * math.cos(ang)
+            oy = goal[1] + dist * math.sin(ang)
+            rad = float(rng.uniform(0.7, 1.1))
+            if np.hypot(ox - start[0], oy - start[1]) < rad + 3.2:
+                continue
+            if np.hypot(ox - goal[0], oy - goal[1]) < rad + 2.5:
+                continue
+            if any(np.hypot(ox - o["pos"][0], oy - o["pos"][1]) < rad + o["rad"] + 2.4 for o in obs):
+                continue
+            obs.append({"type": "circle", "pos": [ox, oy], "rad": rad})
+            break
+
+    return dict(obstacles=obs, start=start, goal=goal, theta0=th,
                 xlim=(0, MC_FIELD), ylim=(0, MC_FIELD), n_obstacles=len(obs))
+
 
 
 def feasible(obstacles, start, goal, inflation, res=0.25, extent=(0.0, 50.0)):
