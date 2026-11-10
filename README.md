@@ -86,6 +86,7 @@ scpf-tractor-trailer/
 │   └── fig_dynamic.*                 # 1×3 horizontal dynamic obstacle evasion snapshots
 ├── generate_experimental_figures.py  # Generates all experimental figures in figures/
 ├── run_all_experiments.py            # Master pipeline to run all experiments and regenerate figures
+├── verify_reproducibility.py         # Automated verification of analytical bounds & benchmark logs
 ├── requirements.txt                  # Python dependencies
 ├── LICENSE                           # MIT License
 └── README.md                         # Documentation
@@ -137,13 +138,16 @@ python experiments/run_timing.py
 
 # 8. Regenerate All Experimental Figures
 python generate_experimental_figures.py
+
+# 9. Verify Analytical Bounds and Benchmark Logs
+python verify_reproducibility.py
 ```
 
 ---
 
 ## Summary of Experimental Results
 
-### 1. Canonical Scenarios
+### 1. Canonical Scenarios (Table 2)
 
 | Scenario | Algorithm | Status | Path Length (m) | Max \|γ\| (°) | Chattering (rad/step) | T_calc (ms) |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -162,7 +166,18 @@ python generate_experimental_figures.py
 
 *\*Indicates mechanical jackknife failure (`|γ| ≥ γ_max = 70.0°`). Interior C-Shape turnaround escape via `W_esc` completes in `38.4 m` with peak `|γ| = 65.5° < 70.0°`.*
 
-### 2. 100-Trial Dense Clutter Monte Carlo Benchmark
+### 2. Single-Component Ablation Study (Table 3)
+
+| Configuration Variant | C-Shape Trap | Zigzag Chicane | Dense Clutter (GNRON) | Primary Failure Mechanism When Disabled |
+| :--- | :---: | :---: | :---: | :--- |
+| **Full Proposed SCPF** | **Success (48.2°)** | **Success (56.3°)** | **Success (34.2°)** | — *(All safety & goal constraints satisfied)* |
+| **w/o Escape Waypoint (`W_esc`)** | Trapped (51.4°) | Success (56.3°) | Success (34.2°) | Limit-cycle oscillation inside concave C-shape cavity |
+| **w/o Directional Hysteresis** | Chattering / Fail | Collision (61.8°) | Success (39.1°) | High-frequency vortex sign flipping at symmetry axes |
+| **w/o Dynamic Trailer Clearance (`ρ_dyn`)** | Success (50.9°) | Trailer Collision | Trailer Collision | Inner rear trailer corner clips obstacle boundary during turns |
+| **w/o Articulation Governor (`τ_jk`)** | Jackknife (71.8°*) | Jackknife (73.4°*) | Success (38.7°) | Articulation angle exceeds `γ_max = 70.0°` during tight reversals |
+| **w/o GNRON Attenuation (`β_goal`)** | Success (48.2°) | Success (56.3°) | Deadlock (d_g = 2.4 m) | Repulsive barrier prevents entry into `ε_goal = 0.5 m` ball |
+
+### 3. 100-Trial Dense Clutter Monte Carlo Benchmark
 
 Across 100 paired randomized layouts in a `50 m × 50 m` yard populated with `35–48` circular obstacles (mean `41.4 ± 2.8` obstacles, all 100 scenes verified feasible via `W_swept`-inflated grid connectivity):
 
